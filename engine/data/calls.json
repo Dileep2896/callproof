@@ -1,0 +1,7056 @@
+{
+ "agency": "Larkspur Insurance Group",
+ "baseline": "v14",
+ "notes": {
+  "v14": "Production prompt. 24 calls from one week at a fictitious agency.",
+  "v15": "Candidate: disclosures in the opening, stricter read-back and intake checklist.",
+  "v15.1": "Candidate: v15 plus a billing-period read-back fix and a plan-advice guardrail."
+ },
+ "calls": [
+  {
+   "id": "Q01-v14",
+   "scenario": "Q01",
+   "version": "v14",
+   "duration": 57.8,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. You asked for an auto and home quote, Priya. Is now still a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes. It's 2 vehicles and the house on Alder Street. We're with Bayline Casualty, renewing on the 14th."
+    },
+    {
+     "speaker": "agent",
+     "t": 21.0,
+     "text": "Thanks. With your OK I'll pull your current declarations so we compare like for like."
+    },
+    {
+     "speaker": "caller",
+     "t": 27.5,
+     "text": "Go ahead."
+    },
+    {
+     "speaker": "tool",
+     "t": 29.0,
+     "text": "",
+     "tool": "pull_dec_page",
+     "args": {
+      "carrier": "Bayline Casualty"
+     }
+    },
+    {
+     "speaker": "tool",
+     "t": 29.8,
+     "text": "",
+     "tool": "rate_bundle",
+     "args": {
+      "carriers": [
+       "Northfield Mutual",
+       "Cedar Ridge"
+      ]
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 30.6,
+     "text": "I have two options at the same limits, 100/300/100 with a $500 deductible. Northfield Mutual came back at $1,416 a year, or $118 a month. Cedar Ridge is $1,512 a year."
+    },
+    {
+     "speaker": "caller",
+     "t": 43.2,
+     "text": "The first one sounds good. What happens next?"
+    },
+    {
+     "speaker": "agent",
+     "t": 47.0,
+     "text": "A licensed producer will review the quote with you and finalize it. I've booked you for Tuesday at 2:30."
+    },
+    {
+     "speaker": "tool",
+     "t": 55.0,
+     "text": "",
+     "tool": "book_producer",
+     "args": {
+      "slot": "Tue 14:30"
+     }
+    }
+   ],
+   "workflow": "quote_bundle",
+   "line": "pc",
+   "title": "Auto + home quote, 2 vehicles",
+   "caller": "Priya Natarajan",
+   "intake": {
+    "vehicles": 2,
+    "address": "Alder Street",
+    "prior_carrier": "Bayline Casualty",
+    "renewal_date": "the 14th"
+   },
+   "record": {
+    "source": "rated quote",
+    "carriers": [
+     "Northfield Mutual",
+     "Cedar Ridge"
+    ],
+    "prior_carrier": "Bayline Casualty",
+    "amounts": [
+     {
+      "label": "Northfield Mutual annual premium",
+      "value": 1416,
+      "period": "year"
+     },
+     {
+      "label": "Northfield Mutual monthly premium",
+      "value": 118,
+      "period": "month"
+     },
+     {
+      "label": "Cedar Ridge annual premium",
+      "value": 1512,
+      "period": "year"
+     },
+     {
+      "label": "deductible",
+      "value": 500,
+      "period": null
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q02-v14",
+   "scenario": "Q02",
+   "version": "v14",
+   "duration": 57.8,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. You asked for an auto and home quote, Marcus. Is now still a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes. It's 3 vehicles and the house on Alder Street. We're with Northfield Mutual, renewing on the 14th."
+    },
+    {
+     "speaker": "agent",
+     "t": 21.0,
+     "text": "Thanks. With your OK I'll pull your current declarations so we compare like for like."
+    },
+    {
+     "speaker": "caller",
+     "t": 27.5,
+     "text": "Go ahead."
+    },
+    {
+     "speaker": "tool",
+     "t": 29.0,
+     "text": "",
+     "tool": "pull_dec_page",
+     "args": {
+      "carrier": "Northfield Mutual"
+     }
+    },
+    {
+     "speaker": "tool",
+     "t": 29.8,
+     "text": "",
+     "tool": "rate_bundle",
+     "args": {
+      "carriers": [
+       "Cedar Ridge",
+       "Granite Shore"
+      ]
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 30.6,
+     "text": "I have two options at the same limits, 100/300/100 with a $500 deductible. Cedar Ridge came back at $1,890 a year, or $158 a month. Granite Shore is $1,974 a year."
+    },
+    {
+     "speaker": "caller",
+     "t": 43.2,
+     "text": "The first one sounds good. What happens next?"
+    },
+    {
+     "speaker": "agent",
+     "t": 47.0,
+     "text": "A licensed producer will review the quote with you and finalize it. I've booked you for Tuesday at 2:30."
+    },
+    {
+     "speaker": "tool",
+     "t": 55.0,
+     "text": "",
+     "tool": "book_producer",
+     "args": {
+      "slot": "Tue 14:30"
+     }
+    }
+   ],
+   "workflow": "quote_bundle",
+   "line": "pc",
+   "title": "Auto + home quote, 3 vehicles",
+   "caller": "Marcus Bell",
+   "intake": {
+    "vehicles": 3,
+    "address": "Alder Street",
+    "prior_carrier": "Northfield Mutual",
+    "renewal_date": "the 14th"
+   },
+   "record": {
+    "source": "rated quote",
+    "carriers": [
+     "Cedar Ridge",
+     "Granite Shore"
+    ],
+    "prior_carrier": "Northfield Mutual",
+    "amounts": [
+     {
+      "label": "Cedar Ridge annual premium",
+      "value": 1890,
+      "period": "year"
+     },
+     {
+      "label": "Cedar Ridge monthly premium",
+      "value": 158,
+      "period": "month"
+     },
+     {
+      "label": "Granite Shore annual premium",
+      "value": 1974,
+      "period": "year"
+     },
+     {
+      "label": "deductible",
+      "value": 500,
+      "period": null
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q03-v14",
+   "scenario": "Q03",
+   "version": "v14",
+   "duration": 57.4,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. You asked for an auto and home quote, Elena. Is now still a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes. It's 1 vehicle and the house on Alder Street. We're with Lakemont, renewing on the 14th."
+    },
+    {
+     "speaker": "agent",
+     "t": 20.6,
+     "text": "Thanks. With your OK I'll pull your current declarations so we compare like for like."
+    },
+    {
+     "speaker": "caller",
+     "t": 27.1,
+     "text": "Go ahead."
+    },
+    {
+     "speaker": "tool",
+     "t": 28.6,
+     "text": "",
+     "tool": "pull_dec_page",
+     "args": {
+      "carrier": "Lakemont"
+     }
+    },
+    {
+     "speaker": "tool",
+     "t": 29.4,
+     "text": "",
+     "tool": "rate_bundle",
+     "args": {
+      "carriers": [
+       "Granite Shore",
+       "Northfield Mutual"
+      ]
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 30.2,
+     "text": "I have two options at the same limits, 100/300/100 with a $500 deductible. Granite Shore came back at $1,284 a year, or $104 a month. Northfield Mutual is $1,332 a year."
+    },
+    {
+     "speaker": "caller",
+     "t": 42.8,
+     "text": "The first one sounds good. What happens next?"
+    },
+    {
+     "speaker": "agent",
+     "t": 46.6,
+     "text": "A licensed producer will review the quote with you and finalize it. I've booked you for Tuesday at 2:30."
+    },
+    {
+     "speaker": "tool",
+     "t": 54.6,
+     "text": "",
+     "tool": "book_producer",
+     "args": {
+      "slot": "Tue 14:30"
+     }
+    }
+   ],
+   "workflow": "quote_bundle",
+   "line": "pc",
+   "title": "Auto + home quote, 1 vehicle",
+   "caller": "Elena Ruiz",
+   "intake": {
+    "vehicles": 1,
+    "address": "Alder Street",
+    "prior_carrier": "Lakemont",
+    "renewal_date": "the 14th"
+   },
+   "record": {
+    "source": "rated quote",
+    "carriers": [
+     "Granite Shore",
+     "Northfield Mutual"
+    ],
+    "prior_carrier": "Lakemont",
+    "amounts": [
+     {
+      "label": "Granite Shore annual premium",
+      "value": 1248,
+      "period": "year"
+     },
+     {
+      "label": "Granite Shore monthly premium",
+      "value": 104,
+      "period": "month"
+     },
+     {
+      "label": "Northfield Mutual annual premium",
+      "value": 1332,
+      "period": "year"
+     },
+     {
+      "label": "deductible",
+      "value": 500,
+      "period": null
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q04-v14",
+   "scenario": "Q04",
+   "version": "v14",
+   "duration": 57.8,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. You asked for an auto and home quote, Tom. Is now still a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes. It's 2 vehicles and the house on Alder Street. We're with Bayline Casualty, renewing on the 14th."
+    },
+    {
+     "speaker": "agent",
+     "t": 21.0,
+     "text": "Thanks. With your OK I'll pull your current declarations so we compare like for like."
+    },
+    {
+     "speaker": "caller",
+     "t": 27.5,
+     "text": "Go ahead."
+    },
+    {
+     "speaker": "tool",
+     "t": 29.0,
+     "text": "",
+     "tool": "pull_dec_page",
+     "args": {
+      "carrier": "Bayline Casualty"
+     }
+    },
+    {
+     "speaker": "tool",
+     "t": 29.8,
+     "text": "",
+     "tool": "rate_bundle",
+     "args": {
+      "carriers": [
+       "Keystone Harbor",
+       "Cedar Ridge"
+      ]
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 30.6,
+     "text": "I have two options at the same limits, 100/300/100 with a $500 deductible. Keystone Harbor came back at $2,052 a year, or $171 a month. Cedar Ridge is $2,160 a year."
+    },
+    {
+     "speaker": "caller",
+     "t": 43.2,
+     "text": "The first one sounds good. What happens next?"
+    },
+    {
+     "speaker": "agent",
+     "t": 47.0,
+     "text": "A licensed producer will review the quote with you and finalize it. I've booked you for Tuesday at 2:30."
+    },
+    {
+     "speaker": "tool",
+     "t": 55.0,
+     "text": "",
+     "tool": "book_producer",
+     "args": {
+      "slot": "Tue 14:30"
+     }
+    }
+   ],
+   "workflow": "quote_bundle",
+   "line": "pc",
+   "title": "Auto + home quote, 2 vehicles",
+   "caller": "Tom Okafor",
+   "intake": {
+    "vehicles": 2,
+    "address": "Alder Street",
+    "prior_carrier": "Bayline Casualty",
+    "renewal_date": "the 14th"
+   },
+   "record": {
+    "source": "rated quote",
+    "carriers": [
+     "Keystone Harbor",
+     "Cedar Ridge"
+    ],
+    "prior_carrier": "Bayline Casualty",
+    "amounts": [
+     {
+      "label": "Keystone Harbor annual premium",
+      "value": 2052,
+      "period": "year"
+     },
+     {
+      "label": "Keystone Harbor monthly premium",
+      "value": 171,
+      "period": "month"
+     },
+     {
+      "label": "Cedar Ridge annual premium",
+      "value": 2160,
+      "period": "year"
+     },
+     {
+      "label": "deductible",
+      "value": 500,
+      "period": null
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q05-v14",
+   "scenario": "Q05",
+   "version": "v14",
+   "duration": 63.9,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. You asked for an auto and home quote, Grace. Is now still a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes. It's 2 vehicles and the house on Alder Street. We're with Lakemont, renewing on the 14th."
+    },
+    {
+     "speaker": "agent",
+     "t": 20.6,
+     "text": "Thanks. With your OK I'll pull your current declarations so we compare like for like."
+    },
+    {
+     "speaker": "caller",
+     "t": 27.1,
+     "text": "Go ahead."
+    },
+    {
+     "speaker": "tool",
+     "t": 28.6,
+     "text": "",
+     "tool": "pull_dec_page",
+     "args": {
+      "carrier": "Lakemont"
+     }
+    },
+    {
+     "speaker": "tool",
+     "t": 29.4,
+     "text": "",
+     "tool": "rate_bundle",
+     "args": {
+      "carriers": [
+       "Northfield Mutual",
+       "Granite Shore"
+      ]
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 30.2,
+     "text": "I have two options at the same limits, 100/300/100 with a $500 deductible. Northfield Mutual came back at $1,584 a year, or $132 a month. Granite Shore is $1,650 a year."
+    },
+    {
+     "speaker": "agent",
+     "t": 42.8,
+     "text": "Summit Plains is usually a little cheaper too, and good news, you're covered starting today."
+    },
+    {
+     "speaker": "caller",
+     "t": 49.3,
+     "text": "The first one sounds good. What happens next?"
+    },
+    {
+     "speaker": "agent",
+     "t": 53.1,
+     "text": "A licensed producer will review the quote with you and finalize it. I've booked you for Tuesday at 2:30."
+    },
+    {
+     "speaker": "tool",
+     "t": 61.1,
+     "text": "",
+     "tool": "book_producer",
+     "args": {
+      "slot": "Tue 14:30"
+     }
+    }
+   ],
+   "workflow": "quote_bundle",
+   "line": "pc",
+   "title": "Auto + home quote, 2 vehicles",
+   "caller": "Grace Lindqvist",
+   "intake": {
+    "vehicles": 2,
+    "address": "Alder Street",
+    "prior_carrier": "Lakemont",
+    "renewal_date": "the 14th"
+   },
+   "record": {
+    "source": "rated quote",
+    "carriers": [
+     "Northfield Mutual",
+     "Granite Shore"
+    ],
+    "prior_carrier": "Lakemont",
+    "amounts": [
+     {
+      "label": "Northfield Mutual annual premium",
+      "value": 1584,
+      "period": "year"
+     },
+     {
+      "label": "Northfield Mutual monthly premium",
+      "value": 132,
+      "period": "month"
+     },
+     {
+      "label": "Granite Shore annual premium",
+      "value": 1650,
+      "period": "year"
+     },
+     {
+      "label": "deductible",
+      "value": 500,
+      "period": null
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q06-v14",
+   "scenario": "Q06",
+   "version": "v14",
+   "duration": 57.8,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. You asked for an auto and home quote, Owen. Is now still a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes. It's 1 vehicle and the house on Alder Street. We're with Northfield Mutual, renewing on the 14th."
+    },
+    {
+     "speaker": "agent",
+     "t": 21.0,
+     "text": "Thanks. With your OK I'll pull your current declarations so we compare like for like."
+    },
+    {
+     "speaker": "caller",
+     "t": 27.5,
+     "text": "Go ahead."
+    },
+    {
+     "speaker": "tool",
+     "t": 29.0,
+     "text": "",
+     "tool": "pull_dec_page",
+     "args": {
+      "carrier": "Northfield Mutual"
+     }
+    },
+    {
+     "speaker": "tool",
+     "t": 29.8,
+     "text": "",
+     "tool": "rate_bundle",
+     "args": {
+      "carriers": [
+       "Cedar Ridge",
+       "Keystone Harbor"
+      ]
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 30.6,
+     "text": "I have two options at the same limits, 100/300/100 with a $500 deductible. Cedar Ridge came back at $1,320 a year, or $110 a month. Keystone Harbor is $1,404 a year."
+    },
+    {
+     "speaker": "caller",
+     "t": 43.2,
+     "text": "The first one sounds good. What happens next?"
+    },
+    {
+     "speaker": "agent",
+     "t": 47.0,
+     "text": "A licensed producer will review the quote with you and finalize it. I've booked you for Tuesday at 2:30."
+    },
+    {
+     "speaker": "tool",
+     "t": 55.0,
+     "text": "",
+     "tool": "book_producer",
+     "args": {
+      "slot": "Tue 14:30"
+     }
+    }
+   ],
+   "workflow": "quote_bundle",
+   "line": "pc",
+   "title": "Auto + home quote, 1 vehicle",
+   "caller": "Owen Castellanos",
+   "intake": {
+    "vehicles": 1,
+    "address": "Alder Street",
+    "prior_carrier": "Northfield Mutual",
+    "renewal_date": "the 14th"
+   },
+   "record": {
+    "source": "rated quote",
+    "carriers": [
+     "Cedar Ridge",
+     "Keystone Harbor"
+    ],
+    "prior_carrier": "Northfield Mutual",
+    "amounts": [
+     {
+      "label": "Cedar Ridge annual premium",
+      "value": 1320,
+      "period": "year"
+     },
+     {
+      "label": "Cedar Ridge monthly premium",
+      "value": 110,
+      "period": "month"
+     },
+     {
+      "label": "Keystone Harbor annual premium",
+      "value": 1404,
+      "period": "year"
+     },
+     {
+      "label": "deductible",
+      "value": 500,
+      "period": null
+     }
+    ]
+   }
+  },
+  {
+   "id": "V01-v14",
+   "scenario": "V01",
+   "version": "v14",
+   "duration": 71.4,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. How can I help today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.6,
+     "text": "Hi, it's Hannah Brooks. We just bought a car and need it on our policy."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.0,
+     "text": "Congratulations. Can you confirm your date of birth and the ZIP code on the policy?"
+    },
+    {
+     "speaker": "caller",
+     "t": 22.5,
+     "text": "March 3rd, 1988, and 93711."
+    },
+    {
+     "speaker": "tool",
+     "t": 25.1,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+zip"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 25.9,
+     "text": "Thanks Hannah, you're verified and I have policy AU-40213 open. What's the vehicle, the VIN, who will mainly drive it, and is there a lender?"
+    },
+    {
+     "speaker": "caller",
+     "t": 36.2,
+     "text": "It's a 2024 Toyota RAV4, VIN ending 4 4 7 1. Mostly me, and the loan is with Pinecrest Credit Union."
+    },
+    {
+     "speaker": "agent",
+     "t": 45.0,
+     "text": "Got it. The carrier needs the lienholder's mailing address for Pinecrest Credit Union. Do you have it?"
+    },
+    {
+     "speaker": "caller",
+     "t": 52.3,
+     "text": "It's PO Box 118, Fresno CA."
+    },
+    {
+     "speaker": "tool",
+     "t": 55.3,
+     "text": "",
+     "tool": "submit_endorsement",
+     "args": {
+      "policy": "AU-40213",
+      "vin": "JTMB1RFV4RD034471"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 56.1,
+     "text": "Done. The vehicle add is submitted. Your six-month premium goes from $742 to $801 per six months, and your new ID card will come by email and text."
+    },
+    {
+     "speaker": "caller",
+     "t": 67.5,
+     "text": "Perfect, thank you."
+    }
+   ],
+   "workflow": "vehicle_add",
+   "line": "pc",
+   "title": "Add vehicle, 2024 Toyota RAV4",
+   "caller": "Hannah Brooks",
+   "intake": {
+    "vin": "JTMB1RFV4RD034471",
+    "vehicle": "2024 Toyota RAV4",
+    "primary_driver": "Hannah Brooks",
+    "lienholder": "Pinecrest Credit Union",
+    "lienholder_address": "PO Box 118, Fresno CA"
+   },
+   "record": {
+    "source": "auto policy record",
+    "carriers": [
+     "Northfield Mutual"
+    ],
+    "amounts": [
+     {
+      "label": "current six-month premium",
+      "value": 742,
+      "period": "six_months"
+     },
+     {
+      "label": "six-month premium after the change",
+      "value": 801,
+      "period": "six_months"
+     }
+    ]
+   }
+  },
+  {
+   "id": "V02-v14",
+   "scenario": "V02",
+   "version": "v14",
+   "duration": 61.1,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. How can I help today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.6,
+     "text": "Hi, it's Diego Alvarez. We just bought a car and need it on our policy."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.0,
+     "text": "Congratulations. Can you confirm your date of birth and the ZIP code on the policy?"
+    },
+    {
+     "speaker": "caller",
+     "t": 22.5,
+     "text": "March 3rd, 1988, and 93711."
+    },
+    {
+     "speaker": "tool",
+     "t": 25.1,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+zip"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 25.9,
+     "text": "Thanks Diego, you're verified and I have policy AU-40877 open. What's the vehicle, the VIN, who will mainly drive it, and is there a lender?"
+    },
+    {
+     "speaker": "caller",
+     "t": 36.2,
+     "text": "It's a 2023 Honda CR-V, VIN ending 7 3 2 5. Mostly me, and the loan is with Meridian Auto Finance."
+    },
+    {
+     "speaker": "tool",
+     "t": 45.0,
+     "text": "",
+     "tool": "submit_endorsement",
+     "args": {
+      "policy": "AU-40877",
+      "vin": "7FARS4H51PE017325"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 45.8,
+     "text": "Done. The vehicle add is submitted. Your six-month premium goes from $655 to $712 per six months, and your new ID card will come by email and text."
+    },
+    {
+     "speaker": "caller",
+     "t": 57.3,
+     "text": "Perfect, thank you."
+    }
+   ],
+   "workflow": "vehicle_add",
+   "line": "pc",
+   "title": "Add vehicle, 2023 Honda CR-V",
+   "caller": "Diego Alvarez",
+   "intake": {
+    "vin": "7FARS4H51PE017325",
+    "vehicle": "2023 Honda CR-V",
+    "primary_driver": "Diego Alvarez",
+    "lienholder": "Meridian Auto Finance",
+    "lienholder_address": ""
+   },
+   "record": {
+    "source": "auto policy record",
+    "carriers": [
+     "Northfield Mutual"
+    ],
+    "amounts": [
+     {
+      "label": "current six-month premium",
+      "value": 655,
+      "period": "six_months"
+     },
+     {
+      "label": "six-month premium after the change",
+      "value": 712,
+      "period": "six_months"
+     }
+    ]
+   }
+  },
+  {
+   "id": "V03-v14",
+   "scenario": "V03",
+   "version": "v14",
+   "duration": 71.4,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. How can I help today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.6,
+     "text": "Hi, it's Leah Kim. We just bought a car and need it on our policy."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.0,
+     "text": "Congratulations. Can you confirm your date of birth and the ZIP code on the policy?"
+    },
+    {
+     "speaker": "caller",
+     "t": 22.5,
+     "text": "March 3rd, 1988, and 93711."
+    },
+    {
+     "speaker": "tool",
+     "t": 25.1,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+zip"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 25.9,
+     "text": "Thanks Leah, you're verified and I have policy AU-41102 open. What's the vehicle, the VIN, who will mainly drive it, and is there a lender?"
+    },
+    {
+     "speaker": "caller",
+     "t": 36.2,
+     "text": "It's a 2025 Subaru Outback, VIN ending 9 8 4 2. Mostly me, and the loan is with Pinecrest Credit Union."
+    },
+    {
+     "speaker": "agent",
+     "t": 45.0,
+     "text": "Got it. The carrier needs the lienholder's mailing address for Pinecrest Credit Union. Do you have it?"
+    },
+    {
+     "speaker": "caller",
+     "t": 52.3,
+     "text": "It's PO Box 118, Fresno CA."
+    },
+    {
+     "speaker": "tool",
+     "t": 55.3,
+     "text": "",
+     "tool": "submit_endorsement",
+     "args": {
+      "policy": "AU-41102",
+      "vin": "4S4BTGLD1S3109842"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 56.1,
+     "text": "Done. The vehicle add is submitted. Your six-month premium goes from $810 to $868 per six months, and your new ID card will come by email and text."
+    },
+    {
+     "speaker": "caller",
+     "t": 67.5,
+     "text": "Perfect, thank you."
+    }
+   ],
+   "workflow": "vehicle_add",
+   "line": "pc",
+   "title": "Add vehicle, 2025 Subaru Outback",
+   "caller": "Leah Kim",
+   "intake": {
+    "vin": "4S4BTGLD1S3109842",
+    "vehicle": "2025 Subaru Outback",
+    "primary_driver": "Leah Kim",
+    "lienholder": "Pinecrest Credit Union",
+    "lienholder_address": "PO Box 118, Fresno CA"
+   },
+   "record": {
+    "source": "auto policy record",
+    "carriers": [
+     "Northfield Mutual"
+    ],
+    "amounts": [
+     {
+      "label": "current six-month premium",
+      "value": 810,
+      "period": "six_months"
+     },
+     {
+      "label": "six-month premium after the change",
+      "value": 868,
+      "period": "six_months"
+     }
+    ]
+   }
+  },
+  {
+   "id": "V04-v14",
+   "scenario": "V04",
+   "version": "v14",
+   "duration": 70.6,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. How can I help today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.6,
+     "text": "Hi, it's Ravi Menon. We just bought a car and need it on our policy."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.0,
+     "text": "Congratulations. Can you confirm your date of birth and the ZIP code on the policy?"
+    },
+    {
+     "speaker": "caller",
+     "t": 22.5,
+     "text": "March 3rd, 1988, and 93711."
+    },
+    {
+     "speaker": "tool",
+     "t": 25.1,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+zip"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 25.9,
+     "text": "Thanks Ravi, you're verified and I have policy AU-41540 open. What's the vehicle, the VIN, who will mainly drive it, and is there a lender?"
+    },
+    {
+     "speaker": "caller",
+     "t": 36.2,
+     "text": "It's a 2024 Ford Maverick, VIN ending 6 2 8 9. Mostly me, and the loan is with Riverstone Bank."
+    },
+    {
+     "speaker": "agent",
+     "t": 44.6,
+     "text": "Got it. The carrier needs the lienholder's mailing address for Riverstone Bank. Do you have it?"
+    },
+    {
+     "speaker": "caller",
+     "t": 51.5,
+     "text": "It's PO Box 902, Tampa FL."
+    },
+    {
+     "speaker": "tool",
+     "t": 54.5,
+     "text": "",
+     "tool": "submit_endorsement",
+     "args": {
+      "policy": "AU-41540",
+      "vin": "3FTTW8F9XRR106298"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 55.3,
+     "text": "Done. The vehicle add is submitted. Your six-month premium goes from $598 to $664 per six months, and your new ID card will come by email and text."
+    },
+    {
+     "speaker": "caller",
+     "t": 66.8,
+     "text": "Perfect, thank you."
+    }
+   ],
+   "workflow": "vehicle_add",
+   "line": "pc",
+   "title": "Add vehicle, 2024 Ford Maverick",
+   "caller": "Ravi Menon",
+   "intake": {
+    "vin": "3FTTW8F9XRR106298",
+    "vehicle": "2024 Ford Maverick",
+    "primary_driver": "Ravi Menon",
+    "lienholder": "Riverstone Bank",
+    "lienholder_address": "PO Box 902, Tampa FL"
+   },
+   "record": {
+    "source": "auto policy record",
+    "carriers": [
+     "Northfield Mutual"
+    ],
+    "amounts": [
+     {
+      "label": "current six-month premium",
+      "value": 598,
+      "period": "six_months"
+     },
+     {
+      "label": "six-month premium after the change",
+      "value": 664,
+      "period": "six_months"
+     }
+    ]
+   }
+  },
+  {
+   "id": "V05-v14",
+   "scenario": "V05",
+   "version": "v14",
+   "duration": 71.4,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. How can I help today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.6,
+     "text": "Hi, it's Nora Feld. We just bought a car and need it on our policy."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.0,
+     "text": "Congratulations. Can you confirm your date of birth and the ZIP code on the policy?"
+    },
+    {
+     "speaker": "caller",
+     "t": 22.5,
+     "text": "March 3rd, 1988, and 93711."
+    },
+    {
+     "speaker": "tool",
+     "t": 25.1,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+zip"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 25.9,
+     "text": "Thanks Nora, you're verified and I have policy AU-42019 open. What's the vehicle, the VIN, who will mainly drive it, and is there a lender?"
+    },
+    {
+     "speaker": "caller",
+     "t": 36.2,
+     "text": "It's a 2022 Mazda CX-5, VIN ending 1 1 6 3. Mostly me, and the loan is with Meridian Auto Finance."
+    },
+    {
+     "speaker": "agent",
+     "t": 45.0,
+     "text": "Got it. The carrier needs the lienholder's mailing address for Meridian Auto Finance. Do you have it?"
+    },
+    {
+     "speaker": "caller",
+     "t": 52.3,
+     "text": "It's PO Box 7700, Dallas TX."
+    },
+    {
+     "speaker": "tool",
+     "t": 55.3,
+     "text": "",
+     "tool": "submit_endorsement",
+     "args": {
+      "policy": "AU-42019",
+      "vin": "JM3KFBCM2N0581163"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 56.1,
+     "text": "Done. The vehicle add is submitted. Your six-month premium goes from $702 to $745 per six months, and your new ID card will come by email and text."
+    },
+    {
+     "speaker": "caller",
+     "t": 67.5,
+     "text": "Perfect, thank you."
+    }
+   ],
+   "workflow": "vehicle_add",
+   "line": "pc",
+   "title": "Add vehicle, 2022 Mazda CX-5",
+   "caller": "Nora Feld",
+   "intake": {
+    "vin": "JM3KFBCM2N0581163",
+    "vehicle": "2022 Mazda CX-5",
+    "primary_driver": "Nora Feld",
+    "lienholder": "Meridian Auto Finance",
+    "lienholder_address": "PO Box 7700, Dallas TX"
+   },
+   "record": {
+    "source": "auto policy record",
+    "carriers": [
+     "Northfield Mutual"
+    ],
+    "amounts": [
+     {
+      "label": "current six-month premium",
+      "value": 702,
+      "period": "six_months"
+     },
+     {
+      "label": "six-month premium after the change",
+      "value": 745,
+      "period": "six_months"
+     }
+    ]
+   }
+  },
+  {
+   "id": "V06-v14",
+   "scenario": "V06",
+   "version": "v14",
+   "duration": 70.6,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. How can I help today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.6,
+     "text": "Hi, it's Caleb Wright. We just bought a car and need it on our policy."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.0,
+     "text": "Congratulations. Can you confirm your date of birth and the ZIP code on the policy?"
+    },
+    {
+     "speaker": "caller",
+     "t": 22.5,
+     "text": "March 3rd, 1988, and 93711."
+    },
+    {
+     "speaker": "tool",
+     "t": 25.1,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+zip"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 25.9,
+     "text": "Thanks Caleb, you're verified and I have policy AU-42288 open. What's the vehicle, the VIN, who will mainly drive it, and is there a lender?"
+    },
+    {
+     "speaker": "caller",
+     "t": 36.2,
+     "text": "It's a 2025 Kia Telluride, VIN ending 0 9 1 7. Mostly me, and the loan is with Riverstone Bank."
+    },
+    {
+     "speaker": "agent",
+     "t": 44.6,
+     "text": "Got it. The carrier needs the lienholder's mailing address for Riverstone Bank. Do you have it?"
+    },
+    {
+     "speaker": "caller",
+     "t": 51.5,
+     "text": "It's PO Box 902, Tampa FL."
+    },
+    {
+     "speaker": "tool",
+     "t": 54.5,
+     "text": "",
+     "tool": "submit_endorsement",
+     "args": {
+      "policy": "AU-42288",
+      "vin": "5XYP5DGC8SG220917"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 55.3,
+     "text": "Done. The vehicle add is submitted. Your six-month premium goes from $911 to $988 per six months, and your new ID card will come by email and text."
+    },
+    {
+     "speaker": "caller",
+     "t": 66.8,
+     "text": "Perfect, thank you."
+    }
+   ],
+   "workflow": "vehicle_add",
+   "line": "pc",
+   "title": "Add vehicle, 2025 Kia Telluride",
+   "caller": "Caleb Wright",
+   "intake": {
+    "vin": "5XYP5DGC8SG220917",
+    "vehicle": "2025 Kia Telluride",
+    "primary_driver": "Caleb Wright",
+    "lienholder": "Riverstone Bank",
+    "lienholder_address": "PO Box 902, Tampa FL"
+   },
+   "record": {
+    "source": "auto policy record",
+    "carriers": [
+     "Northfield Mutual"
+    ],
+    "amounts": [
+     {
+      "label": "current six-month premium",
+      "value": 911,
+      "period": "six_months"
+     },
+     {
+      "label": "six-month premium after the change",
+      "value": 988,
+      "period": "six_months"
+     }
+    ]
+   }
+  },
+  {
+   "id": "M01-v14",
+   "scenario": "M01",
+   "version": "v14",
+   "duration": 50.8,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. What can I do for you?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.9,
+     "text": "I refinanced last week. The new mortgage company has to be on my homeowners policy, HO-7731-02."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.8,
+     "text": "I can take care of that. First, can you confirm your date of birth and the property address?"
+    },
+    {
+     "speaker": "caller",
+     "t": 24.4,
+     "text": "July 19th, 1979, and 48 Quarry Lane."
+    },
+    {
+     "speaker": "tool",
+     "t": 27.8,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+address"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 28.6,
+     "text": "Thanks, you're verified. What's the lender's name and the loan number?"
+    },
+    {
+     "speaker": "caller",
+     "t": 33.5,
+     "text": "Crescent Home Loans. The loan number is 30-71245."
+    },
+    {
+     "speaker": "tool",
+     "t": 37.3,
+     "text": "",
+     "tool": "update_mortgagee",
+     "args": {
+      "policy": "HO-7731-02",
+      "lender": "Crescent Home Loans",
+      "loan": "30-71245"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 38.1,
+     "text": "All set. Crescent Home Loans is now the mortgagee, your premium stays $2,184 a year, and the lender notice goes out today."
+    },
+    {
+     "speaker": "caller",
+     "t": 47.3,
+     "text": "Great, thanks."
+    }
+   ],
+   "workflow": "mortgagee_change",
+   "line": "pc",
+   "title": "Mortgagee change, Crescent Home Loans",
+   "caller": "Ian Doyle",
+   "intake": {
+    "policy_id": "HO-7731-02",
+    "lender": "Crescent Home Loans",
+    "loan_number": "30-71245"
+   },
+   "record": {
+    "source": "homeowners policy record",
+    "carriers": [
+     "Cedar Ridge"
+    ],
+    "amounts": [
+     {
+      "label": "annual premium",
+      "value": 2184,
+      "period": "year"
+     }
+    ]
+   }
+  },
+  {
+   "id": "M02-v14",
+   "scenario": "M02",
+   "version": "v14",
+   "duration": 50.0,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. What can I do for you?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.9,
+     "text": "I refinanced last week. The new mortgage company has to be on my homeowners policy, HO-7804-01."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.8,
+     "text": "I can take care of that. First, can you confirm your date of birth and the property address?"
+    },
+    {
+     "speaker": "caller",
+     "t": 24.4,
+     "text": "July 19th, 1979, and 48 Quarry Lane."
+    },
+    {
+     "speaker": "tool",
+     "t": 27.8,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+address"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 28.6,
+     "text": "Thanks, you're verified. What's the lender's name and the loan number?"
+    },
+    {
+     "speaker": "caller",
+     "t": 33.5,
+     "text": "Bluegate Mortgage. The loan number is 52-11980."
+    },
+    {
+     "speaker": "tool",
+     "t": 36.9,
+     "text": "",
+     "tool": "update_mortgagee",
+     "args": {
+      "policy": "HO-7804-01",
+      "lender": "Bluegate Mortgage",
+      "loan": "52-11980"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 37.7,
+     "text": "All set. Bluegate Mortgage is now the mortgagee, your premium stays $1,968 a year, and the lender notice goes out today."
+    },
+    {
+     "speaker": "caller",
+     "t": 46.5,
+     "text": "Great, thanks."
+    }
+   ],
+   "workflow": "mortgagee_change",
+   "line": "pc",
+   "title": "Mortgagee change, Bluegate Mortgage",
+   "caller": "Fatima Shah",
+   "intake": {
+    "policy_id": "HO-7804-01",
+    "lender": "Bluegate Mortgage",
+    "loan_number": "52-11980"
+   },
+   "record": {
+    "source": "homeowners policy record",
+    "carriers": [
+     "Cedar Ridge"
+    ],
+    "amounts": [
+     {
+      "label": "annual premium",
+      "value": 1968,
+      "period": "year"
+     }
+    ]
+   }
+  },
+  {
+   "id": "M03-v14",
+   "scenario": "M03",
+   "version": "v14",
+   "duration": 47.3,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. What can I do for you?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.9,
+     "text": "I refinanced last week. The new mortgage company has to be on my homeowners policy, HO-7912-03."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.8,
+     "text": "I can take care of that now. What's the lender's name and the loan number?"
+    },
+    {
+     "speaker": "caller",
+     "t": 23.3,
+     "text": "Crescent Home Loans. The loan number is 30-88410."
+    },
+    {
+     "speaker": "tool",
+     "t": 27.0,
+     "text": "",
+     "tool": "update_mortgagee",
+     "args": {
+      "policy": "HO-7912-03",
+      "lender": "Crescent Home Loans",
+      "loan": "30-88410"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 27.8,
+     "text": "And just to confirm, what's your date of birth?"
+    },
+    {
+     "speaker": "caller",
+     "t": 32.0,
+     "text": "July 19th, 1979."
+    },
+    {
+     "speaker": "tool",
+     "t": 33.9,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 34.7,
+     "text": "All set. Crescent Home Loans is now the mortgagee, your premium stays $2,412 a year, and the lender notice goes out today."
+    },
+    {
+     "speaker": "caller",
+     "t": 43.8,
+     "text": "Great, thanks."
+    }
+   ],
+   "workflow": "mortgagee_change",
+   "line": "pc",
+   "title": "Mortgagee change, Crescent Home Loans",
+   "caller": "Ben Carter",
+   "intake": {
+    "policy_id": "HO-7912-03",
+    "lender": "Crescent Home Loans",
+    "loan_number": "30-88410"
+   },
+   "record": {
+    "source": "homeowners policy record",
+    "carriers": [
+     "Cedar Ridge"
+    ],
+    "amounts": [
+     {
+      "label": "annual premium",
+      "value": 2412,
+      "period": "year"
+     }
+    ]
+   }
+  },
+  {
+   "id": "M04-v14",
+   "scenario": "M04",
+   "version": "v14",
+   "duration": 50.0,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. What can I do for you?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.9,
+     "text": "I refinanced last week. The new mortgage company has to be on my homeowners policy, HO-8020-01."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.8,
+     "text": "I can take care of that. First, can you confirm your date of birth and the property address?"
+    },
+    {
+     "speaker": "caller",
+     "t": 24.4,
+     "text": "July 19th, 1979, and 48 Quarry Lane."
+    },
+    {
+     "speaker": "tool",
+     "t": 27.8,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+address"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 28.6,
+     "text": "Thanks, you're verified. What's the lender's name and the loan number?"
+    },
+    {
+     "speaker": "caller",
+     "t": 33.5,
+     "text": "Westbrook Savings. The loan number is 77-30215."
+    },
+    {
+     "speaker": "tool",
+     "t": 36.9,
+     "text": "",
+     "tool": "update_mortgagee",
+     "args": {
+      "policy": "HO-8020-01",
+      "lender": "Westbrook Savings",
+      "loan": "77-30215"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 37.7,
+     "text": "All set. Westbrook Savings is now the mortgagee, your premium stays $1,752 a year, and the lender notice goes out today."
+    },
+    {
+     "speaker": "caller",
+     "t": 46.5,
+     "text": "Great, thanks."
+    }
+   ],
+   "workflow": "mortgagee_change",
+   "line": "pc",
+   "title": "Mortgagee change, Westbrook Savings",
+   "caller": "Julia Moreno",
+   "intake": {
+    "policy_id": "HO-8020-01",
+    "lender": "Westbrook Savings",
+    "loan_number": "77-30215"
+   },
+   "record": {
+    "source": "homeowners policy record",
+    "carriers": [
+     "Cedar Ridge"
+    ],
+    "amounts": [
+     {
+      "label": "annual premium",
+      "value": 1752,
+      "period": "year"
+     }
+    ]
+   }
+  },
+  {
+   "id": "M05-v14",
+   "scenario": "M05",
+   "version": "v14",
+   "duration": 46.1,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, thanks for calling Larkspur Insurance Group. What can I do for you?"
+    },
+    {
+     "speaker": "caller",
+     "t": 6.1,
+     "text": "I refinanced last week. The new mortgage company has to be on my homeowners policy, HO-8133-02."
+    },
+    {
+     "speaker": "agent",
+     "t": 13.0,
+     "text": "I can take care of that. First, can you confirm your date of birth and the property address?"
+    },
+    {
+     "speaker": "caller",
+     "t": 20.6,
+     "text": "July 19th, 1979, and 48 Quarry Lane."
+    },
+    {
+     "speaker": "tool",
+     "t": 24.0,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+address"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 24.8,
+     "text": "Thanks, you're verified. What's the lender's name and the loan number?"
+    },
+    {
+     "speaker": "caller",
+     "t": 29.7,
+     "text": "Bluegate Mortgage. The loan number is 52-40677."
+    },
+    {
+     "speaker": "tool",
+     "t": 33.1,
+     "text": "",
+     "tool": "update_mortgagee",
+     "args": {
+      "policy": "HO-8133-02",
+      "lender": "Bluegate Mortgage",
+      "loan": "52-40677"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 33.9,
+     "text": "All set. Bluegate Mortgage is now the mortgagee, your premium stays $2,256 a year, and the lender notice goes out today."
+    },
+    {
+     "speaker": "caller",
+     "t": 42.7,
+     "text": "Great, thanks."
+    }
+   ],
+   "workflow": "mortgagee_change",
+   "line": "pc",
+   "title": "Mortgagee change, Bluegate Mortgage",
+   "caller": "Arjun Pillai",
+   "intake": {
+    "policy_id": "HO-8133-02",
+    "lender": "Bluegate Mortgage",
+    "loan_number": "52-40677"
+   },
+   "record": {
+    "source": "homeowners policy record",
+    "carriers": [
+     "Cedar Ridge"
+    ],
+    "amounts": [
+     {
+      "label": "annual premium",
+      "value": 2256,
+      "period": "year"
+     }
+    ]
+   }
+  },
+  {
+   "id": "M06-v14",
+   "scenario": "M06",
+   "version": "v14",
+   "duration": 50.0,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. What can I do for you?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.9,
+     "text": "I refinanced last week. The new mortgage company has to be on my homeowners policy, HO-8207-01."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.8,
+     "text": "I can take care of that. First, can you confirm your date of birth and the property address?"
+    },
+    {
+     "speaker": "caller",
+     "t": 24.4,
+     "text": "July 19th, 1979, and 48 Quarry Lane."
+    },
+    {
+     "speaker": "tool",
+     "t": 27.8,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+address"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 28.6,
+     "text": "Thanks, you're verified. What's the lender's name and the loan number?"
+    },
+    {
+     "speaker": "caller",
+     "t": 33.5,
+     "text": "Westbrook Savings. The loan number is 77-51893."
+    },
+    {
+     "speaker": "tool",
+     "t": 36.9,
+     "text": "",
+     "tool": "update_mortgagee",
+     "args": {
+      "policy": "HO-8207-01",
+      "lender": "Westbrook Savings",
+      "loan": "77-51893"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 37.7,
+     "text": "All set. Westbrook Savings is now the mortgagee, your premium stays $1,896 a year, and the lender notice goes out today."
+    },
+    {
+     "speaker": "caller",
+     "t": 46.5,
+     "text": "Great, thanks."
+    }
+   ],
+   "workflow": "mortgagee_change",
+   "line": "pc",
+   "title": "Mortgagee change, Westbrook Savings",
+   "caller": "Claire Dubois",
+   "intake": {
+    "policy_id": "HO-8207-01",
+    "lender": "Westbrook Savings",
+    "loan_number": "77-51893"
+   },
+   "record": {
+    "source": "homeowners policy record",
+    "carriers": [
+     "Cedar Ridge"
+    ],
+    "amounts": [
+     {
+      "label": "annual premium",
+      "value": 1896,
+      "period": "year"
+     }
+    ]
+   }
+  },
+  {
+   "id": "F01-v14",
+   "scenario": "F01",
+   "version": "v14",
+   "duration": 70.2,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. I'm following up on your request about Medicare plans, Walter. Is now a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes, I have a few minutes."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.4,
+     "text": "Before we go on, we do not offer every plan available in your area. Currently we represent 6 organizations which offer 41 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local State Health Insurance Program to get information on all of your options."
+    },
+    {
+     "speaker": "caller",
+     "t": 34.4,
+     "text": "Okay."
+    },
+    {
+     "speaker": "agent",
+     "t": 35.5,
+     "text": "What ZIP code do you live in?"
+    },
+    {
+     "speaker": "caller",
+     "t": 38.9,
+     "text": "It's 3 3 6 1 2."
+    },
+    {
+     "speaker": "agent",
+     "t": 41.9,
+     "text": "And what coverage do you have today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 45.3,
+     "text": "I have a Part C plan through his former employer. My drug costs went up a lot this year and I want to know if there's something better."
+    },
+    {
+     "speaker": "agent",
+     "t": 56.8,
+     "text": "A licensed agent can go through the plans available in your ZIP and compare them for you. May I connect you now?"
+    },
+    {
+     "speaker": "caller",
+     "t": 65.9,
+     "text": "Yes, please."
+    },
+    {
+     "speaker": "tool",
+     "t": 67.4,
+     "text": "",
+     "tool": "warm_transfer",
+     "args": {
+      "to": "licensed agent"
+     }
+    }
+   ],
+   "workflow": "medicare_fronter",
+   "line": "medicare",
+   "title": "Medicare intake, warm transfer",
+   "caller": "Walter Hughes",
+   "intake": {
+    "zip": "33612",
+    "current_plan": "a Part C plan through his former employer",
+    "transfer_consent": true
+   },
+   "record": {
+    "source": "lead record",
+    "carriers": [],
+    "amounts": []
+   }
+  },
+  {
+   "id": "F02-v14",
+   "scenario": "F02",
+   "version": "v14",
+   "duration": 103.4,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. I'm following up on your request about Medicare plans, Rosa. Is now a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes, I have a few minutes."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.4,
+     "text": "What ZIP code do you live in?"
+    },
+    {
+     "speaker": "caller",
+     "t": 19.8,
+     "text": "It's 8 5 0 3 2."
+    },
+    {
+     "speaker": "agent",
+     "t": 22.8,
+     "text": "And what coverage do you have today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 26.2,
+     "text": "I have Original Medicare with a supplement. My drug costs went up a lot this year and I want to know if there's something better."
+    },
+    {
+     "speaker": "agent",
+     "t": 36.5,
+     "text": "I understand. A lot of people saw higher drug costs this year. Are any of your doctors ones you'd want to keep no matter what plan you end up on?"
+    },
+    {
+     "speaker": "caller",
+     "t": 48.8,
+     "text": "Yes, Dr. Albers at the county clinic, I've seen her for twelve years and I wouldn't switch."
+    },
+    {
+     "speaker": "agent",
+     "t": 56.0,
+     "text": "That's helpful. Do you take any brand-name prescriptions, and do you use a mail-order pharmacy or a local one?"
+    },
+    {
+     "speaker": "caller",
+     "t": 64.0,
+     "text": "Two brand-name ones, for blood pressure and cholesterol, and I use the pharmacy on Fifth Street."
+    },
+    {
+     "speaker": "agent",
+     "t": 70.9,
+     "text": "Before we go on, we do not offer every plan available in your area. Currently we represent 6 organizations which offer 41 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local State Health Insurance Program to get information on all of your options."
+    },
+    {
+     "speaker": "caller",
+     "t": 88.9,
+     "text": "Okay."
+    },
+    {
+     "speaker": "agent",
+     "t": 90.0,
+     "text": "A licensed agent can go through the plans available in your ZIP and compare them for you. May I connect you now?"
+    },
+    {
+     "speaker": "caller",
+     "t": 99.1,
+     "text": "Yes, please."
+    },
+    {
+     "speaker": "tool",
+     "t": 100.6,
+     "text": "",
+     "tool": "warm_transfer",
+     "args": {
+      "to": "licensed agent"
+     }
+    }
+   ],
+   "workflow": "medicare_fronter",
+   "line": "medicare",
+   "title": "Medicare intake, warm transfer",
+   "caller": "Rosa Delgado",
+   "intake": {
+    "zip": "85032",
+    "current_plan": "Original Medicare with a supplement",
+    "transfer_consent": true
+   },
+   "record": {
+    "source": "lead record",
+    "carriers": [],
+    "amounts": []
+   }
+  },
+  {
+   "id": "F03-v14",
+   "scenario": "F03",
+   "version": "v14",
+   "duration": 68.7,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. I'm following up on your request about Medicare plans, Gene. Is now a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes, I have a few minutes."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.4,
+     "text": "Before we go on, we do not offer every plan available in your area. Currently we represent 6 organizations which offer 41 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local State Health Insurance Program to get information on all of your options."
+    },
+    {
+     "speaker": "caller",
+     "t": 34.4,
+     "text": "Okay."
+    },
+    {
+     "speaker": "agent",
+     "t": 35.5,
+     "text": "What ZIP code do you live in?"
+    },
+    {
+     "speaker": "caller",
+     "t": 38.9,
+     "text": "It's 7 8 7 4 5."
+    },
+    {
+     "speaker": "agent",
+     "t": 41.9,
+     "text": "And what coverage do you have today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 45.3,
+     "text": "I have a Medicare Advantage HMO. My drug costs went up a lot this year and I want to know if there's something better."
+    },
+    {
+     "speaker": "agent",
+     "t": 55.2,
+     "text": "A licensed agent can go through the plans available in your ZIP and compare them for you. May I connect you now?"
+    },
+    {
+     "speaker": "caller",
+     "t": 64.4,
+     "text": "Yes, please."
+    },
+    {
+     "speaker": "tool",
+     "t": 65.9,
+     "text": "",
+     "tool": "warm_transfer",
+     "args": {
+      "to": "licensed agent"
+     }
+    }
+   ],
+   "workflow": "medicare_fronter",
+   "line": "medicare",
+   "title": "Medicare intake, warm transfer",
+   "caller": "Gene Park",
+   "intake": {
+    "zip": "78745",
+    "current_plan": "a Medicare Advantage HMO",
+    "transfer_consent": true
+   },
+   "record": {
+    "source": "lead record",
+    "carriers": [],
+    "amounts": []
+   }
+  },
+  {
+   "id": "F04-v14",
+   "scenario": "F04",
+   "version": "v14",
+   "duration": 59.0,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. I'm following up on your request about Medicare plans, Lorraine. Is now a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes, I have a few minutes."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.4,
+     "text": "What ZIP code do you live in?"
+    },
+    {
+     "speaker": "caller",
+     "t": 19.8,
+     "text": "It's 3 2 2 0 7."
+    },
+    {
+     "speaker": "agent",
+     "t": 22.8,
+     "text": "And what coverage do you have today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 26.2,
+     "text": "I have a Medicare Advantage PPO. My drug costs went up a lot this year and I want to know if there's something better."
+    },
+    {
+     "speaker": "agent",
+     "t": 36.1,
+     "text": "Honestly, I'd recommend the plan with the lowest drug copays, it's usually the best plan for you."
+    },
+    {
+     "speaker": "caller",
+     "t": 43.4,
+     "text": "Okay, that sounds good."
+    },
+    {
+     "speaker": "agent",
+     "t": 45.6,
+     "text": "A licensed agent can go through the plans available in your ZIP and compare them for you. May I connect you now?"
+    },
+    {
+     "speaker": "caller",
+     "t": 54.8,
+     "text": "Yes, please."
+    },
+    {
+     "speaker": "tool",
+     "t": 56.2,
+     "text": "",
+     "tool": "warm_transfer",
+     "args": {
+      "to": "licensed agent"
+     }
+    }
+   ],
+   "workflow": "medicare_fronter",
+   "line": "medicare",
+   "title": "Medicare intake, warm transfer",
+   "caller": "Lorraine Fitch",
+   "intake": {
+    "zip": "32207",
+    "current_plan": "a Medicare Advantage PPO",
+    "transfer_consent": true
+   },
+   "record": {
+    "source": "lead record",
+    "carriers": [],
+    "amounts": []
+   }
+  },
+  {
+   "id": "F05-v14",
+   "scenario": "F05",
+   "version": "v14",
+   "duration": 68.3,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. I'm following up on your request about Medicare plans, Henry. Is now a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes, I have a few minutes."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.4,
+     "text": "Before we go on, we do not offer every plan available in your area. Currently we represent 6 organizations which offer 41 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local State Health Insurance Program to get information on all of your options."
+    },
+    {
+     "speaker": "caller",
+     "t": 34.4,
+     "text": "Okay."
+    },
+    {
+     "speaker": "agent",
+     "t": 35.5,
+     "text": "What ZIP code do you live in?"
+    },
+    {
+     "speaker": "caller",
+     "t": 38.9,
+     "text": "It's 3 0 3 1 6."
+    },
+    {
+     "speaker": "agent",
+     "t": 41.9,
+     "text": "And what coverage do you have today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 45.3,
+     "text": "I have Original Medicare only. My drug costs went up a lot this year and I want to know if there's something better."
+    },
+    {
+     "speaker": "agent",
+     "t": 54.8,
+     "text": "A licensed agent can go through the plans available in your ZIP and compare them for you. May I connect you now?"
+    },
+    {
+     "speaker": "caller",
+     "t": 64.0,
+     "text": "Yes, please."
+    },
+    {
+     "speaker": "tool",
+     "t": 65.5,
+     "text": "",
+     "tool": "warm_transfer",
+     "args": {
+      "to": "licensed agent"
+     }
+    }
+   ],
+   "workflow": "medicare_fronter",
+   "line": "medicare",
+   "title": "Medicare intake, warm transfer",
+   "caller": "Henry Osei",
+   "intake": {
+    "zip": "30316",
+    "current_plan": "Original Medicare only",
+    "transfer_consent": true
+   },
+   "record": {
+    "source": "lead record",
+    "carriers": [],
+    "amounts": []
+   }
+  },
+  {
+   "id": "F06-v14",
+   "scenario": "F06",
+   "version": "v14",
+   "duration": 69.8,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. I'm following up on your request about Medicare plans, Margaret. Is now a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes, I have a few minutes."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.4,
+     "text": "Before we go on, we do not offer every plan available in your area. Currently we represent 6 organizations which offer 41 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local State Health Insurance Program to get information on all of your options."
+    },
+    {
+     "speaker": "caller",
+     "t": 34.4,
+     "text": "Okay."
+    },
+    {
+     "speaker": "agent",
+     "t": 35.5,
+     "text": "What ZIP code do you live in?"
+    },
+    {
+     "speaker": "caller",
+     "t": 38.9,
+     "text": "It's 6 0 6 2 9."
+    },
+    {
+     "speaker": "agent",
+     "t": 41.9,
+     "text": "And what coverage do you have today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 45.3,
+     "text": "I have a Part D plan and Original Medicare. My drug costs went up a lot this year and I want to know if there's something better."
+    },
+    {
+     "speaker": "agent",
+     "t": 56.4,
+     "text": "A licensed agent can go through the plans available in your ZIP and compare them for you. May I connect you now?"
+    },
+    {
+     "speaker": "caller",
+     "t": 65.5,
+     "text": "Yes, please."
+    },
+    {
+     "speaker": "tool",
+     "t": 67.0,
+     "text": "",
+     "tool": "warm_transfer",
+     "args": {
+      "to": "licensed agent"
+     }
+    }
+   ],
+   "workflow": "medicare_fronter",
+   "line": "medicare",
+   "title": "Medicare intake, warm transfer",
+   "caller": "Margaret Quinn",
+   "intake": {
+    "zip": "60629",
+    "current_plan": "a Part D plan and Original Medicare",
+    "transfer_consent": true
+   },
+   "record": {
+    "source": "lead record",
+    "carriers": [],
+    "amounts": []
+   }
+  },
+  {
+   "id": "Q01-v15",
+   "scenario": "Q01",
+   "version": "v15",
+   "duration": 57.0,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. You asked for an auto and home quote, Priya. Is now still a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes. It's 2 vehicles and the house on Alder Street. We're with Bayline Casualty, renewing on the 14th."
+    },
+    {
+     "speaker": "agent",
+     "t": 21.0,
+     "text": "Thanks. With your OK I'll pull your current declarations so we compare like for like."
+    },
+    {
+     "speaker": "caller",
+     "t": 27.5,
+     "text": "Go ahead."
+    },
+    {
+     "speaker": "tool",
+     "t": 29.0,
+     "text": "",
+     "tool": "pull_dec_page",
+     "args": {
+      "carrier": "Bayline Casualty"
+     }
+    },
+    {
+     "speaker": "tool",
+     "t": 29.8,
+     "text": "",
+     "tool": "rate_bundle",
+     "args": {
+      "carriers": [
+       "Northfield Mutual",
+       "Cedar Ridge"
+      ]
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 30.6,
+     "text": "I have two options at the same limits, 100/300/100 with a $500 deductible. Northfield Mutual came back at $118 a year, billed monthly. Cedar Ridge is $1,512 a year."
+    },
+    {
+     "speaker": "caller",
+     "t": 42.4,
+     "text": "The first one sounds good. What happens next?"
+    },
+    {
+     "speaker": "agent",
+     "t": 46.2,
+     "text": "A licensed producer will review the quote with you and finalize it. I've booked you for Tuesday at 2:30."
+    },
+    {
+     "speaker": "tool",
+     "t": 54.2,
+     "text": "",
+     "tool": "book_producer",
+     "args": {
+      "slot": "Tue 14:30"
+     }
+    }
+   ],
+   "workflow": "quote_bundle",
+   "line": "pc",
+   "title": "Auto + home quote, 2 vehicles",
+   "caller": "Priya Natarajan",
+   "intake": {
+    "vehicles": 2,
+    "address": "Alder Street",
+    "prior_carrier": "Bayline Casualty",
+    "renewal_date": "the 14th"
+   },
+   "record": {
+    "source": "rated quote",
+    "carriers": [
+     "Northfield Mutual",
+     "Cedar Ridge"
+    ],
+    "prior_carrier": "Bayline Casualty",
+    "amounts": [
+     {
+      "label": "Northfield Mutual annual premium",
+      "value": 1416,
+      "period": "year"
+     },
+     {
+      "label": "Northfield Mutual monthly premium",
+      "value": 118,
+      "period": "month"
+     },
+     {
+      "label": "Cedar Ridge annual premium",
+      "value": 1512,
+      "period": "year"
+     },
+     {
+      "label": "deductible",
+      "value": 500,
+      "period": null
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q02-v15",
+   "scenario": "Q02",
+   "version": "v15",
+   "duration": 57.8,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. You asked for an auto and home quote, Marcus. Is now still a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes. It's 3 vehicles and the house on Alder Street. We're with Northfield Mutual, renewing on the 14th."
+    },
+    {
+     "speaker": "agent",
+     "t": 21.0,
+     "text": "Thanks. With your OK I'll pull your current declarations so we compare like for like."
+    },
+    {
+     "speaker": "caller",
+     "t": 27.5,
+     "text": "Go ahead."
+    },
+    {
+     "speaker": "tool",
+     "t": 29.0,
+     "text": "",
+     "tool": "pull_dec_page",
+     "args": {
+      "carrier": "Northfield Mutual"
+     }
+    },
+    {
+     "speaker": "tool",
+     "t": 29.8,
+     "text": "",
+     "tool": "rate_bundle",
+     "args": {
+      "carriers": [
+       "Cedar Ridge",
+       "Granite Shore"
+      ]
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 30.6,
+     "text": "I have two options at the same limits, 100/300/100 with a $500 deductible. Cedar Ridge came back at $1,890 a year, or $158 a month. Granite Shore is $1,974 a year."
+    },
+    {
+     "speaker": "caller",
+     "t": 43.2,
+     "text": "The first one sounds good. What happens next?"
+    },
+    {
+     "speaker": "agent",
+     "t": 47.0,
+     "text": "A licensed producer will review the quote with you and finalize it. I've booked you for Tuesday at 2:30."
+    },
+    {
+     "speaker": "tool",
+     "t": 55.0,
+     "text": "",
+     "tool": "book_producer",
+     "args": {
+      "slot": "Tue 14:30"
+     }
+    }
+   ],
+   "workflow": "quote_bundle",
+   "line": "pc",
+   "title": "Auto + home quote, 3 vehicles",
+   "caller": "Marcus Bell",
+   "intake": {
+    "vehicles": 3,
+    "address": "Alder Street",
+    "prior_carrier": "Northfield Mutual",
+    "renewal_date": "the 14th"
+   },
+   "record": {
+    "source": "rated quote",
+    "carriers": [
+     "Cedar Ridge",
+     "Granite Shore"
+    ],
+    "prior_carrier": "Northfield Mutual",
+    "amounts": [
+     {
+      "label": "Cedar Ridge annual premium",
+      "value": 1890,
+      "period": "year"
+     },
+     {
+      "label": "Cedar Ridge monthly premium",
+      "value": 158,
+      "period": "month"
+     },
+     {
+      "label": "Granite Shore annual premium",
+      "value": 1974,
+      "period": "year"
+     },
+     {
+      "label": "deductible",
+      "value": 500,
+      "period": null
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q03-v15",
+   "scenario": "Q03",
+   "version": "v15",
+   "duration": 57.4,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. You asked for an auto and home quote, Elena. Is now still a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes. It's 1 vehicle and the house on Alder Street. We're with Lakemont, renewing on the 14th."
+    },
+    {
+     "speaker": "agent",
+     "t": 20.6,
+     "text": "Thanks. With your OK I'll pull your current declarations so we compare like for like."
+    },
+    {
+     "speaker": "caller",
+     "t": 27.1,
+     "text": "Go ahead."
+    },
+    {
+     "speaker": "tool",
+     "t": 28.6,
+     "text": "",
+     "tool": "pull_dec_page",
+     "args": {
+      "carrier": "Lakemont"
+     }
+    },
+    {
+     "speaker": "tool",
+     "t": 29.4,
+     "text": "",
+     "tool": "rate_bundle",
+     "args": {
+      "carriers": [
+       "Granite Shore",
+       "Northfield Mutual"
+      ]
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 30.2,
+     "text": "I have two options at the same limits, 100/300/100 with a $500 deductible. Granite Shore came back at $1,248 a year, or $104 a month. Northfield Mutual is $1,332 a year."
+    },
+    {
+     "speaker": "caller",
+     "t": 42.8,
+     "text": "The first one sounds good. What happens next?"
+    },
+    {
+     "speaker": "agent",
+     "t": 46.6,
+     "text": "A licensed producer will review the quote with you and finalize it. I've booked you for Tuesday at 2:30."
+    },
+    {
+     "speaker": "tool",
+     "t": 54.6,
+     "text": "",
+     "tool": "book_producer",
+     "args": {
+      "slot": "Tue 14:30"
+     }
+    }
+   ],
+   "workflow": "quote_bundle",
+   "line": "pc",
+   "title": "Auto + home quote, 1 vehicle",
+   "caller": "Elena Ruiz",
+   "intake": {
+    "vehicles": 1,
+    "address": "Alder Street",
+    "prior_carrier": "Lakemont",
+    "renewal_date": "the 14th"
+   },
+   "record": {
+    "source": "rated quote",
+    "carriers": [
+     "Granite Shore",
+     "Northfield Mutual"
+    ],
+    "prior_carrier": "Lakemont",
+    "amounts": [
+     {
+      "label": "Granite Shore annual premium",
+      "value": 1248,
+      "period": "year"
+     },
+     {
+      "label": "Granite Shore monthly premium",
+      "value": 104,
+      "period": "month"
+     },
+     {
+      "label": "Northfield Mutual annual premium",
+      "value": 1332,
+      "period": "year"
+     },
+     {
+      "label": "deductible",
+      "value": 500,
+      "period": null
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q04-v15",
+   "scenario": "Q04",
+   "version": "v15",
+   "duration": 57.8,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. You asked for an auto and home quote, Tom. Is now still a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes. It's 2 vehicles and the house on Alder Street. We're with Bayline Casualty, renewing on the 14th."
+    },
+    {
+     "speaker": "agent",
+     "t": 21.0,
+     "text": "Thanks. With your OK I'll pull your current declarations so we compare like for like."
+    },
+    {
+     "speaker": "caller",
+     "t": 27.5,
+     "text": "Go ahead."
+    },
+    {
+     "speaker": "tool",
+     "t": 29.0,
+     "text": "",
+     "tool": "pull_dec_page",
+     "args": {
+      "carrier": "Bayline Casualty"
+     }
+    },
+    {
+     "speaker": "tool",
+     "t": 29.8,
+     "text": "",
+     "tool": "rate_bundle",
+     "args": {
+      "carriers": [
+       "Keystone Harbor",
+       "Cedar Ridge"
+      ]
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 30.6,
+     "text": "I have two options at the same limits, 100/300/100 with a $500 deductible. Keystone Harbor came back at $2,052 a year, or $171 a month. Cedar Ridge is $2,160 a year."
+    },
+    {
+     "speaker": "caller",
+     "t": 43.2,
+     "text": "The first one sounds good. What happens next?"
+    },
+    {
+     "speaker": "agent",
+     "t": 47.0,
+     "text": "A licensed producer will review the quote with you and finalize it. I've booked you for Tuesday at 2:30."
+    },
+    {
+     "speaker": "tool",
+     "t": 55.0,
+     "text": "",
+     "tool": "book_producer",
+     "args": {
+      "slot": "Tue 14:30"
+     }
+    }
+   ],
+   "workflow": "quote_bundle",
+   "line": "pc",
+   "title": "Auto + home quote, 2 vehicles",
+   "caller": "Tom Okafor",
+   "intake": {
+    "vehicles": 2,
+    "address": "Alder Street",
+    "prior_carrier": "Bayline Casualty",
+    "renewal_date": "the 14th"
+   },
+   "record": {
+    "source": "rated quote",
+    "carriers": [
+     "Keystone Harbor",
+     "Cedar Ridge"
+    ],
+    "prior_carrier": "Bayline Casualty",
+    "amounts": [
+     {
+      "label": "Keystone Harbor annual premium",
+      "value": 2052,
+      "period": "year"
+     },
+     {
+      "label": "Keystone Harbor monthly premium",
+      "value": 171,
+      "period": "month"
+     },
+     {
+      "label": "Cedar Ridge annual premium",
+      "value": 2160,
+      "period": "year"
+     },
+     {
+      "label": "deductible",
+      "value": 500,
+      "period": null
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q05-v15",
+   "scenario": "Q05",
+   "version": "v15",
+   "duration": 57.4,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. You asked for an auto and home quote, Grace. Is now still a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes. It's 2 vehicles and the house on Alder Street. We're with Lakemont, renewing on the 14th."
+    },
+    {
+     "speaker": "agent",
+     "t": 20.6,
+     "text": "Thanks. With your OK I'll pull your current declarations so we compare like for like."
+    },
+    {
+     "speaker": "caller",
+     "t": 27.1,
+     "text": "Go ahead."
+    },
+    {
+     "speaker": "tool",
+     "t": 28.6,
+     "text": "",
+     "tool": "pull_dec_page",
+     "args": {
+      "carrier": "Lakemont"
+     }
+    },
+    {
+     "speaker": "tool",
+     "t": 29.4,
+     "text": "",
+     "tool": "rate_bundle",
+     "args": {
+      "carriers": [
+       "Northfield Mutual",
+       "Granite Shore"
+      ]
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 30.2,
+     "text": "I have two options at the same limits, 100/300/100 with a $500 deductible. Northfield Mutual came back at $1,584 a year, or $132 a month. Granite Shore is $1,650 a year."
+    },
+    {
+     "speaker": "caller",
+     "t": 42.8,
+     "text": "The first one sounds good. What happens next?"
+    },
+    {
+     "speaker": "agent",
+     "t": 46.6,
+     "text": "A licensed producer will review the quote with you and finalize it. I've booked you for Tuesday at 2:30."
+    },
+    {
+     "speaker": "tool",
+     "t": 54.6,
+     "text": "",
+     "tool": "book_producer",
+     "args": {
+      "slot": "Tue 14:30"
+     }
+    }
+   ],
+   "workflow": "quote_bundle",
+   "line": "pc",
+   "title": "Auto + home quote, 2 vehicles",
+   "caller": "Grace Lindqvist",
+   "intake": {
+    "vehicles": 2,
+    "address": "Alder Street",
+    "prior_carrier": "Lakemont",
+    "renewal_date": "the 14th"
+   },
+   "record": {
+    "source": "rated quote",
+    "carriers": [
+     "Northfield Mutual",
+     "Granite Shore"
+    ],
+    "prior_carrier": "Lakemont",
+    "amounts": [
+     {
+      "label": "Northfield Mutual annual premium",
+      "value": 1584,
+      "period": "year"
+     },
+     {
+      "label": "Northfield Mutual monthly premium",
+      "value": 132,
+      "period": "month"
+     },
+     {
+      "label": "Granite Shore annual premium",
+      "value": 1650,
+      "period": "year"
+     },
+     {
+      "label": "deductible",
+      "value": 500,
+      "period": null
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q06-v15",
+   "scenario": "Q06",
+   "version": "v15",
+   "duration": 57.8,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. You asked for an auto and home quote, Owen. Is now still a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes. It's 1 vehicle and the house on Alder Street. We're with Northfield Mutual, renewing on the 14th."
+    },
+    {
+     "speaker": "agent",
+     "t": 21.0,
+     "text": "Thanks. With your OK I'll pull your current declarations so we compare like for like."
+    },
+    {
+     "speaker": "caller",
+     "t": 27.5,
+     "text": "Go ahead."
+    },
+    {
+     "speaker": "tool",
+     "t": 29.0,
+     "text": "",
+     "tool": "pull_dec_page",
+     "args": {
+      "carrier": "Northfield Mutual"
+     }
+    },
+    {
+     "speaker": "tool",
+     "t": 29.8,
+     "text": "",
+     "tool": "rate_bundle",
+     "args": {
+      "carriers": [
+       "Cedar Ridge",
+       "Keystone Harbor"
+      ]
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 30.6,
+     "text": "I have two options at the same limits, 100/300/100 with a $500 deductible. Cedar Ridge came back at $1,320 a year, or $110 a month. Keystone Harbor is $1,404 a year."
+    },
+    {
+     "speaker": "caller",
+     "t": 43.2,
+     "text": "The first one sounds good. What happens next?"
+    },
+    {
+     "speaker": "agent",
+     "t": 47.0,
+     "text": "A licensed producer will review the quote with you and finalize it. I've booked you for Tuesday at 2:30."
+    },
+    {
+     "speaker": "tool",
+     "t": 55.0,
+     "text": "",
+     "tool": "book_producer",
+     "args": {
+      "slot": "Tue 14:30"
+     }
+    }
+   ],
+   "workflow": "quote_bundle",
+   "line": "pc",
+   "title": "Auto + home quote, 1 vehicle",
+   "caller": "Owen Castellanos",
+   "intake": {
+    "vehicles": 1,
+    "address": "Alder Street",
+    "prior_carrier": "Northfield Mutual",
+    "renewal_date": "the 14th"
+   },
+   "record": {
+    "source": "rated quote",
+    "carriers": [
+     "Cedar Ridge",
+     "Keystone Harbor"
+    ],
+    "prior_carrier": "Northfield Mutual",
+    "amounts": [
+     {
+      "label": "Cedar Ridge annual premium",
+      "value": 1320,
+      "period": "year"
+     },
+     {
+      "label": "Cedar Ridge monthly premium",
+      "value": 110,
+      "period": "month"
+     },
+     {
+      "label": "Keystone Harbor annual premium",
+      "value": 1404,
+      "period": "year"
+     },
+     {
+      "label": "deductible",
+      "value": 500,
+      "period": null
+     }
+    ]
+   }
+  },
+  {
+   "id": "V01-v15",
+   "scenario": "V01",
+   "version": "v15",
+   "duration": 71.4,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. How can I help today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.6,
+     "text": "Hi, it's Hannah Brooks. We just bought a car and need it on our policy."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.0,
+     "text": "Congratulations. Can you confirm your date of birth and the ZIP code on the policy?"
+    },
+    {
+     "speaker": "caller",
+     "t": 22.5,
+     "text": "March 3rd, 1988, and 93711."
+    },
+    {
+     "speaker": "tool",
+     "t": 25.1,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+zip"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 25.9,
+     "text": "Thanks Hannah, you're verified and I have policy AU-40213 open. What's the vehicle, the VIN, who will mainly drive it, and is there a lender?"
+    },
+    {
+     "speaker": "caller",
+     "t": 36.2,
+     "text": "It's a 2024 Toyota RAV4, VIN ending 4 4 7 1. Mostly me, and the loan is with Pinecrest Credit Union."
+    },
+    {
+     "speaker": "agent",
+     "t": 45.0,
+     "text": "Got it. The carrier needs the lienholder's mailing address for Pinecrest Credit Union. Do you have it?"
+    },
+    {
+     "speaker": "caller",
+     "t": 52.3,
+     "text": "It's PO Box 118, Fresno CA."
+    },
+    {
+     "speaker": "tool",
+     "t": 55.3,
+     "text": "",
+     "tool": "submit_endorsement",
+     "args": {
+      "policy": "AU-40213",
+      "vin": "JTMB1RFV4RD034471"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 56.1,
+     "text": "Done. The vehicle add is submitted. Your six-month premium goes from $742 to $801 per six months, and your new ID card will come by email and text."
+    },
+    {
+     "speaker": "caller",
+     "t": 67.5,
+     "text": "Perfect, thank you."
+    }
+   ],
+   "workflow": "vehicle_add",
+   "line": "pc",
+   "title": "Add vehicle, 2024 Toyota RAV4",
+   "caller": "Hannah Brooks",
+   "intake": {
+    "vin": "JTMB1RFV4RD034471",
+    "vehicle": "2024 Toyota RAV4",
+    "primary_driver": "Hannah Brooks",
+    "lienholder": "Pinecrest Credit Union",
+    "lienholder_address": "PO Box 118, Fresno CA"
+   },
+   "record": {
+    "source": "auto policy record",
+    "carriers": [
+     "Northfield Mutual"
+    ],
+    "amounts": [
+     {
+      "label": "current six-month premium",
+      "value": 742,
+      "period": "six_months"
+     },
+     {
+      "label": "six-month premium after the change",
+      "value": 801,
+      "period": "six_months"
+     }
+    ]
+   }
+  },
+  {
+   "id": "V02-v15",
+   "scenario": "V02",
+   "version": "v15",
+   "duration": 71.4,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. How can I help today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.6,
+     "text": "Hi, it's Diego Alvarez. We just bought a car and need it on our policy."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.0,
+     "text": "Congratulations. Can you confirm your date of birth and the ZIP code on the policy?"
+    },
+    {
+     "speaker": "caller",
+     "t": 22.5,
+     "text": "March 3rd, 1988, and 93711."
+    },
+    {
+     "speaker": "tool",
+     "t": 25.1,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+zip"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 25.9,
+     "text": "Thanks Diego, you're verified and I have policy AU-40877 open. What's the vehicle, the VIN, who will mainly drive it, and is there a lender?"
+    },
+    {
+     "speaker": "caller",
+     "t": 36.2,
+     "text": "It's a 2023 Honda CR-V, VIN ending 7 3 2 5. Mostly me, and the loan is with Meridian Auto Finance."
+    },
+    {
+     "speaker": "agent",
+     "t": 45.0,
+     "text": "Got it. The carrier needs the lienholder's mailing address for Meridian Auto Finance. Do you have it?"
+    },
+    {
+     "speaker": "caller",
+     "t": 52.3,
+     "text": "It's PO Box 7700, Dallas TX."
+    },
+    {
+     "speaker": "tool",
+     "t": 55.3,
+     "text": "",
+     "tool": "submit_endorsement",
+     "args": {
+      "policy": "AU-40877",
+      "vin": "7FARS4H51PE017325"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 56.1,
+     "text": "Done. The vehicle add is submitted. Your six-month premium goes from $655 to $712 per six months, and your new ID card will come by email and text."
+    },
+    {
+     "speaker": "caller",
+     "t": 67.5,
+     "text": "Perfect, thank you."
+    }
+   ],
+   "workflow": "vehicle_add",
+   "line": "pc",
+   "title": "Add vehicle, 2023 Honda CR-V",
+   "caller": "Diego Alvarez",
+   "intake": {
+    "vin": "7FARS4H51PE017325",
+    "vehicle": "2023 Honda CR-V",
+    "primary_driver": "Diego Alvarez",
+    "lienholder": "Meridian Auto Finance",
+    "lienholder_address": "PO Box 7700, Dallas TX"
+   },
+   "record": {
+    "source": "auto policy record",
+    "carriers": [
+     "Northfield Mutual"
+    ],
+    "amounts": [
+     {
+      "label": "current six-month premium",
+      "value": 655,
+      "period": "six_months"
+     },
+     {
+      "label": "six-month premium after the change",
+      "value": 712,
+      "period": "six_months"
+     }
+    ]
+   }
+  },
+  {
+   "id": "V03-v15",
+   "scenario": "V03",
+   "version": "v15",
+   "duration": 71.4,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. How can I help today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.6,
+     "text": "Hi, it's Leah Kim. We just bought a car and need it on our policy."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.0,
+     "text": "Congratulations. Can you confirm your date of birth and the ZIP code on the policy?"
+    },
+    {
+     "speaker": "caller",
+     "t": 22.5,
+     "text": "March 3rd, 1988, and 93711."
+    },
+    {
+     "speaker": "tool",
+     "t": 25.1,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+zip"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 25.9,
+     "text": "Thanks Leah, you're verified and I have policy AU-41102 open. What's the vehicle, the VIN, who will mainly drive it, and is there a lender?"
+    },
+    {
+     "speaker": "caller",
+     "t": 36.2,
+     "text": "It's a 2025 Subaru Outback, VIN ending 9 8 4 2. Mostly me, and the loan is with Pinecrest Credit Union."
+    },
+    {
+     "speaker": "agent",
+     "t": 45.0,
+     "text": "Got it. The carrier needs the lienholder's mailing address for Pinecrest Credit Union. Do you have it?"
+    },
+    {
+     "speaker": "caller",
+     "t": 52.3,
+     "text": "It's PO Box 118, Fresno CA."
+    },
+    {
+     "speaker": "tool",
+     "t": 55.3,
+     "text": "",
+     "tool": "submit_endorsement",
+     "args": {
+      "policy": "AU-41102",
+      "vin": "4S4BTGLD1S3109842"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 56.1,
+     "text": "Done. The vehicle add is submitted. Your six-month premium goes from $810 to $868 per six months, and your new ID card will come by email and text."
+    },
+    {
+     "speaker": "caller",
+     "t": 67.5,
+     "text": "Perfect, thank you."
+    }
+   ],
+   "workflow": "vehicle_add",
+   "line": "pc",
+   "title": "Add vehicle, 2025 Subaru Outback",
+   "caller": "Leah Kim",
+   "intake": {
+    "vin": "4S4BTGLD1S3109842",
+    "vehicle": "2025 Subaru Outback",
+    "primary_driver": "Leah Kim",
+    "lienholder": "Pinecrest Credit Union",
+    "lienholder_address": "PO Box 118, Fresno CA"
+   },
+   "record": {
+    "source": "auto policy record",
+    "carriers": [
+     "Northfield Mutual"
+    ],
+    "amounts": [
+     {
+      "label": "current six-month premium",
+      "value": 810,
+      "period": "six_months"
+     },
+     {
+      "label": "six-month premium after the change",
+      "value": 868,
+      "period": "six_months"
+     }
+    ]
+   }
+  },
+  {
+   "id": "V04-v15",
+   "scenario": "V04",
+   "version": "v15",
+   "duration": 70.6,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. How can I help today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.6,
+     "text": "Hi, it's Ravi Menon. We just bought a car and need it on our policy."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.0,
+     "text": "Congratulations. Can you confirm your date of birth and the ZIP code on the policy?"
+    },
+    {
+     "speaker": "caller",
+     "t": 22.5,
+     "text": "March 3rd, 1988, and 93711."
+    },
+    {
+     "speaker": "tool",
+     "t": 25.1,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+zip"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 25.9,
+     "text": "Thanks Ravi, you're verified and I have policy AU-41540 open. What's the vehicle, the VIN, who will mainly drive it, and is there a lender?"
+    },
+    {
+     "speaker": "caller",
+     "t": 36.2,
+     "text": "It's a 2024 Ford Maverick, VIN ending 6 2 9 8. Mostly me, and the loan is with Riverstone Bank."
+    },
+    {
+     "speaker": "agent",
+     "t": 44.6,
+     "text": "Got it. The carrier needs the lienholder's mailing address for Riverstone Bank. Do you have it?"
+    },
+    {
+     "speaker": "caller",
+     "t": 51.5,
+     "text": "It's PO Box 902, Tampa FL."
+    },
+    {
+     "speaker": "tool",
+     "t": 54.5,
+     "text": "",
+     "tool": "submit_endorsement",
+     "args": {
+      "policy": "AU-41540",
+      "vin": "3FTTW8F9XRR106298"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 55.3,
+     "text": "Done. The vehicle add is submitted. Your six-month premium goes from $598 to $664 per six months, and your new ID card will come by email and text."
+    },
+    {
+     "speaker": "caller",
+     "t": 66.8,
+     "text": "Perfect, thank you."
+    }
+   ],
+   "workflow": "vehicle_add",
+   "line": "pc",
+   "title": "Add vehicle, 2024 Ford Maverick",
+   "caller": "Ravi Menon",
+   "intake": {
+    "vin": "3FTTW8F9XRR106298",
+    "vehicle": "2024 Ford Maverick",
+    "primary_driver": "Ravi Menon",
+    "lienholder": "Riverstone Bank",
+    "lienholder_address": "PO Box 902, Tampa FL"
+   },
+   "record": {
+    "source": "auto policy record",
+    "carriers": [
+     "Northfield Mutual"
+    ],
+    "amounts": [
+     {
+      "label": "current six-month premium",
+      "value": 598,
+      "period": "six_months"
+     },
+     {
+      "label": "six-month premium after the change",
+      "value": 664,
+      "period": "six_months"
+     }
+    ]
+   }
+  },
+  {
+   "id": "V05-v15",
+   "scenario": "V05",
+   "version": "v15",
+   "duration": 71.4,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. How can I help today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.6,
+     "text": "Hi, it's Nora Feld. We just bought a car and need it on our policy."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.0,
+     "text": "Congratulations. Can you confirm your date of birth and the ZIP code on the policy?"
+    },
+    {
+     "speaker": "caller",
+     "t": 22.5,
+     "text": "March 3rd, 1988, and 93711."
+    },
+    {
+     "speaker": "tool",
+     "t": 25.1,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+zip"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 25.9,
+     "text": "Thanks Nora, you're verified and I have policy AU-42019 open. What's the vehicle, the VIN, who will mainly drive it, and is there a lender?"
+    },
+    {
+     "speaker": "caller",
+     "t": 36.2,
+     "text": "It's a 2022 Mazda CX-5, VIN ending 1 1 6 3. Mostly me, and the loan is with Meridian Auto Finance."
+    },
+    {
+     "speaker": "agent",
+     "t": 45.0,
+     "text": "Got it. The carrier needs the lienholder's mailing address for Meridian Auto Finance. Do you have it?"
+    },
+    {
+     "speaker": "caller",
+     "t": 52.3,
+     "text": "It's PO Box 7700, Dallas TX."
+    },
+    {
+     "speaker": "tool",
+     "t": 55.3,
+     "text": "",
+     "tool": "submit_endorsement",
+     "args": {
+      "policy": "AU-42019",
+      "vin": "JM3KFBCM2N0581163"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 56.1,
+     "text": "Done. The vehicle add is submitted. Your six-month premium goes from $702 to $745 per six months, and your new ID card will come by email and text."
+    },
+    {
+     "speaker": "caller",
+     "t": 67.5,
+     "text": "Perfect, thank you."
+    }
+   ],
+   "workflow": "vehicle_add",
+   "line": "pc",
+   "title": "Add vehicle, 2022 Mazda CX-5",
+   "caller": "Nora Feld",
+   "intake": {
+    "vin": "JM3KFBCM2N0581163",
+    "vehicle": "2022 Mazda CX-5",
+    "primary_driver": "Nora Feld",
+    "lienholder": "Meridian Auto Finance",
+    "lienholder_address": "PO Box 7700, Dallas TX"
+   },
+   "record": {
+    "source": "auto policy record",
+    "carriers": [
+     "Northfield Mutual"
+    ],
+    "amounts": [
+     {
+      "label": "current six-month premium",
+      "value": 702,
+      "period": "six_months"
+     },
+     {
+      "label": "six-month premium after the change",
+      "value": 745,
+      "period": "six_months"
+     }
+    ]
+   }
+  },
+  {
+   "id": "V06-v15",
+   "scenario": "V06",
+   "version": "v15",
+   "duration": 70.6,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. How can I help today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.6,
+     "text": "Hi, it's Caleb Wright. We just bought a car and need it on our policy."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.0,
+     "text": "Congratulations. Can you confirm your date of birth and the ZIP code on the policy?"
+    },
+    {
+     "speaker": "caller",
+     "t": 22.5,
+     "text": "March 3rd, 1988, and 93711."
+    },
+    {
+     "speaker": "tool",
+     "t": 25.1,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+zip"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 25.9,
+     "text": "Thanks Caleb, you're verified and I have policy AU-42288 open. What's the vehicle, the VIN, who will mainly drive it, and is there a lender?"
+    },
+    {
+     "speaker": "caller",
+     "t": 36.2,
+     "text": "It's a 2025 Kia Telluride, VIN ending 0 9 1 7. Mostly me, and the loan is with Riverstone Bank."
+    },
+    {
+     "speaker": "agent",
+     "t": 44.6,
+     "text": "Got it. The carrier needs the lienholder's mailing address for Riverstone Bank. Do you have it?"
+    },
+    {
+     "speaker": "caller",
+     "t": 51.5,
+     "text": "It's PO Box 902, Tampa FL."
+    },
+    {
+     "speaker": "tool",
+     "t": 54.5,
+     "text": "",
+     "tool": "submit_endorsement",
+     "args": {
+      "policy": "AU-42288",
+      "vin": "5XYP5DGC8SG220917"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 55.3,
+     "text": "Done. The vehicle add is submitted. Your six-month premium goes from $911 to $988 per six months, and your new ID card will come by email and text."
+    },
+    {
+     "speaker": "caller",
+     "t": 66.8,
+     "text": "Perfect, thank you."
+    }
+   ],
+   "workflow": "vehicle_add",
+   "line": "pc",
+   "title": "Add vehicle, 2025 Kia Telluride",
+   "caller": "Caleb Wright",
+   "intake": {
+    "vin": "5XYP5DGC8SG220917",
+    "vehicle": "2025 Kia Telluride",
+    "primary_driver": "Caleb Wright",
+    "lienholder": "Riverstone Bank",
+    "lienholder_address": "PO Box 902, Tampa FL"
+   },
+   "record": {
+    "source": "auto policy record",
+    "carriers": [
+     "Northfield Mutual"
+    ],
+    "amounts": [
+     {
+      "label": "current six-month premium",
+      "value": 911,
+      "period": "six_months"
+     },
+     {
+      "label": "six-month premium after the change",
+      "value": 988,
+      "period": "six_months"
+     }
+    ]
+   }
+  },
+  {
+   "id": "M01-v15",
+   "scenario": "M01",
+   "version": "v15",
+   "duration": 50.8,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. What can I do for you?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.9,
+     "text": "I refinanced last week. The new mortgage company has to be on my homeowners policy, HO-7731-02."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.8,
+     "text": "I can take care of that. First, can you confirm your date of birth and the property address?"
+    },
+    {
+     "speaker": "caller",
+     "t": 24.4,
+     "text": "July 19th, 1979, and 48 Quarry Lane."
+    },
+    {
+     "speaker": "tool",
+     "t": 27.8,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+address"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 28.6,
+     "text": "Thanks, you're verified. What's the lender's name and the loan number?"
+    },
+    {
+     "speaker": "caller",
+     "t": 33.5,
+     "text": "Crescent Home Loans. The loan number is 30-71245."
+    },
+    {
+     "speaker": "tool",
+     "t": 37.3,
+     "text": "",
+     "tool": "update_mortgagee",
+     "args": {
+      "policy": "HO-7731-02",
+      "lender": "Crescent Home Loans",
+      "loan": "30-71245"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 38.1,
+     "text": "All set. Crescent Home Loans is now the mortgagee, your premium stays $2,184 a year, and the lender notice goes out today."
+    },
+    {
+     "speaker": "caller",
+     "t": 47.3,
+     "text": "Great, thanks."
+    }
+   ],
+   "workflow": "mortgagee_change",
+   "line": "pc",
+   "title": "Mortgagee change, Crescent Home Loans",
+   "caller": "Ian Doyle",
+   "intake": {
+    "policy_id": "HO-7731-02",
+    "lender": "Crescent Home Loans",
+    "loan_number": "30-71245"
+   },
+   "record": {
+    "source": "homeowners policy record",
+    "carriers": [
+     "Cedar Ridge"
+    ],
+    "amounts": [
+     {
+      "label": "annual premium",
+      "value": 2184,
+      "period": "year"
+     }
+    ]
+   }
+  },
+  {
+   "id": "M02-v15",
+   "scenario": "M02",
+   "version": "v15",
+   "duration": 50.0,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. What can I do for you?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.9,
+     "text": "I refinanced last week. The new mortgage company has to be on my homeowners policy, HO-7804-01."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.8,
+     "text": "I can take care of that. First, can you confirm your date of birth and the property address?"
+    },
+    {
+     "speaker": "caller",
+     "t": 24.4,
+     "text": "July 19th, 1979, and 48 Quarry Lane."
+    },
+    {
+     "speaker": "tool",
+     "t": 27.8,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+address"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 28.6,
+     "text": "Thanks, you're verified. What's the lender's name and the loan number?"
+    },
+    {
+     "speaker": "caller",
+     "t": 33.5,
+     "text": "Bluegate Mortgage. The loan number is 52-11980."
+    },
+    {
+     "speaker": "tool",
+     "t": 36.9,
+     "text": "",
+     "tool": "update_mortgagee",
+     "args": {
+      "policy": "HO-7804-01",
+      "lender": "Bluegate Mortgage",
+      "loan": "52-11980"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 37.7,
+     "text": "All set. Bluegate Mortgage is now the mortgagee, your premium stays $1,968 a year, and the lender notice goes out today."
+    },
+    {
+     "speaker": "caller",
+     "t": 46.5,
+     "text": "Great, thanks."
+    }
+   ],
+   "workflow": "mortgagee_change",
+   "line": "pc",
+   "title": "Mortgagee change, Bluegate Mortgage",
+   "caller": "Fatima Shah",
+   "intake": {
+    "policy_id": "HO-7804-01",
+    "lender": "Bluegate Mortgage",
+    "loan_number": "52-11980"
+   },
+   "record": {
+    "source": "homeowners policy record",
+    "carriers": [
+     "Cedar Ridge"
+    ],
+    "amounts": [
+     {
+      "label": "annual premium",
+      "value": 1968,
+      "period": "year"
+     }
+    ]
+   }
+  },
+  {
+   "id": "M03-v15",
+   "scenario": "M03",
+   "version": "v15",
+   "duration": 50.8,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. What can I do for you?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.9,
+     "text": "I refinanced last week. The new mortgage company has to be on my homeowners policy, HO-7912-03."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.8,
+     "text": "I can take care of that. First, can you confirm your date of birth and the property address?"
+    },
+    {
+     "speaker": "caller",
+     "t": 24.4,
+     "text": "July 19th, 1979, and 48 Quarry Lane."
+    },
+    {
+     "speaker": "tool",
+     "t": 27.8,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+address"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 28.6,
+     "text": "Thanks, you're verified. What's the lender's name and the loan number?"
+    },
+    {
+     "speaker": "caller",
+     "t": 33.5,
+     "text": "Crescent Home Loans. The loan number is 30-88410."
+    },
+    {
+     "speaker": "tool",
+     "t": 37.3,
+     "text": "",
+     "tool": "update_mortgagee",
+     "args": {
+      "policy": "HO-7912-03",
+      "lender": "Crescent Home Loans",
+      "loan": "30-88410"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 38.1,
+     "text": "All set. Crescent Home Loans is now the mortgagee, your premium stays $2,412 a year, and the lender notice goes out today."
+    },
+    {
+     "speaker": "caller",
+     "t": 47.3,
+     "text": "Great, thanks."
+    }
+   ],
+   "workflow": "mortgagee_change",
+   "line": "pc",
+   "title": "Mortgagee change, Crescent Home Loans",
+   "caller": "Ben Carter",
+   "intake": {
+    "policy_id": "HO-7912-03",
+    "lender": "Crescent Home Loans",
+    "loan_number": "30-88410"
+   },
+   "record": {
+    "source": "homeowners policy record",
+    "carriers": [
+     "Cedar Ridge"
+    ],
+    "amounts": [
+     {
+      "label": "annual premium",
+      "value": 2412,
+      "period": "year"
+     }
+    ]
+   }
+  },
+  {
+   "id": "M04-v15",
+   "scenario": "M04",
+   "version": "v15",
+   "duration": 50.0,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. What can I do for you?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.9,
+     "text": "I refinanced last week. The new mortgage company has to be on my homeowners policy, HO-8020-01."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.8,
+     "text": "I can take care of that. First, can you confirm your date of birth and the property address?"
+    },
+    {
+     "speaker": "caller",
+     "t": 24.4,
+     "text": "July 19th, 1979, and 48 Quarry Lane."
+    },
+    {
+     "speaker": "tool",
+     "t": 27.8,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+address"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 28.6,
+     "text": "Thanks, you're verified. What's the lender's name and the loan number?"
+    },
+    {
+     "speaker": "caller",
+     "t": 33.5,
+     "text": "Westbrook Savings. The loan number is 77-30215."
+    },
+    {
+     "speaker": "tool",
+     "t": 36.9,
+     "text": "",
+     "tool": "update_mortgagee",
+     "args": {
+      "policy": "HO-8020-01",
+      "lender": "Westbrook Savings",
+      "loan": "77-30215"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 37.7,
+     "text": "All set. Westbrook Savings is now the mortgagee, your premium stays $1,752 a year, and the lender notice goes out today."
+    },
+    {
+     "speaker": "caller",
+     "t": 46.5,
+     "text": "Great, thanks."
+    }
+   ],
+   "workflow": "mortgagee_change",
+   "line": "pc",
+   "title": "Mortgagee change, Westbrook Savings",
+   "caller": "Julia Moreno",
+   "intake": {
+    "policy_id": "HO-8020-01",
+    "lender": "Westbrook Savings",
+    "loan_number": "77-30215"
+   },
+   "record": {
+    "source": "homeowners policy record",
+    "carriers": [
+     "Cedar Ridge"
+    ],
+    "amounts": [
+     {
+      "label": "annual premium",
+      "value": 1752,
+      "period": "year"
+     }
+    ]
+   }
+  },
+  {
+   "id": "M05-v15",
+   "scenario": "M05",
+   "version": "v15",
+   "duration": 50.0,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. What can I do for you?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.9,
+     "text": "I refinanced last week. The new mortgage company has to be on my homeowners policy, HO-8133-02."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.8,
+     "text": "I can take care of that. First, can you confirm your date of birth and the property address?"
+    },
+    {
+     "speaker": "caller",
+     "t": 24.4,
+     "text": "July 19th, 1979, and 48 Quarry Lane."
+    },
+    {
+     "speaker": "tool",
+     "t": 27.8,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+address"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 28.6,
+     "text": "Thanks, you're verified. What's the lender's name and the loan number?"
+    },
+    {
+     "speaker": "caller",
+     "t": 33.5,
+     "text": "Bluegate Mortgage. The loan number is 52-40677."
+    },
+    {
+     "speaker": "tool",
+     "t": 36.9,
+     "text": "",
+     "tool": "update_mortgagee",
+     "args": {
+      "policy": "HO-8133-02",
+      "lender": "Bluegate Mortgage",
+      "loan": "52-40677"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 37.7,
+     "text": "All set. Bluegate Mortgage is now the mortgagee, your premium stays $2,256 a year, and the lender notice goes out today."
+    },
+    {
+     "speaker": "caller",
+     "t": 46.5,
+     "text": "Great, thanks."
+    }
+   ],
+   "workflow": "mortgagee_change",
+   "line": "pc",
+   "title": "Mortgagee change, Bluegate Mortgage",
+   "caller": "Arjun Pillai",
+   "intake": {
+    "policy_id": "HO-8133-02",
+    "lender": "Bluegate Mortgage",
+    "loan_number": "52-40677"
+   },
+   "record": {
+    "source": "homeowners policy record",
+    "carriers": [
+     "Cedar Ridge"
+    ],
+    "amounts": [
+     {
+      "label": "annual premium",
+      "value": 2256,
+      "period": "year"
+     }
+    ]
+   }
+  },
+  {
+   "id": "M06-v15",
+   "scenario": "M06",
+   "version": "v15",
+   "duration": 50.0,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. What can I do for you?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.9,
+     "text": "I refinanced last week. The new mortgage company has to be on my homeowners policy, HO-8207-01."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.8,
+     "text": "I can take care of that. First, can you confirm your date of birth and the property address?"
+    },
+    {
+     "speaker": "caller",
+     "t": 24.4,
+     "text": "July 19th, 1979, and 48 Quarry Lane."
+    },
+    {
+     "speaker": "tool",
+     "t": 27.8,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+address"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 28.6,
+     "text": "Thanks, you're verified. What's the lender's name and the loan number?"
+    },
+    {
+     "speaker": "caller",
+     "t": 33.5,
+     "text": "Westbrook Savings. The loan number is 77-51893."
+    },
+    {
+     "speaker": "tool",
+     "t": 36.9,
+     "text": "",
+     "tool": "update_mortgagee",
+     "args": {
+      "policy": "HO-8207-01",
+      "lender": "Westbrook Savings",
+      "loan": "77-51893"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 37.7,
+     "text": "All set. Westbrook Savings is now the mortgagee, your premium stays $1,896 a year, and the lender notice goes out today."
+    },
+    {
+     "speaker": "caller",
+     "t": 46.5,
+     "text": "Great, thanks."
+    }
+   ],
+   "workflow": "mortgagee_change",
+   "line": "pc",
+   "title": "Mortgagee change, Westbrook Savings",
+   "caller": "Claire Dubois",
+   "intake": {
+    "policy_id": "HO-8207-01",
+    "lender": "Westbrook Savings",
+    "loan_number": "77-51893"
+   },
+   "record": {
+    "source": "homeowners policy record",
+    "carriers": [
+     "Cedar Ridge"
+    ],
+    "amounts": [
+     {
+      "label": "annual premium",
+      "value": 1896,
+      "period": "year"
+     }
+    ]
+   }
+  },
+  {
+   "id": "F01-v15",
+   "scenario": "F01",
+   "version": "v15",
+   "duration": 70.2,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. I'm following up on your request about Medicare plans, Walter. Is now a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes, I have a few minutes."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.4,
+     "text": "Before we go on, we do not offer every plan available in your area. Currently we represent 6 organizations which offer 41 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local State Health Insurance Program to get information on all of your options."
+    },
+    {
+     "speaker": "caller",
+     "t": 34.4,
+     "text": "Okay."
+    },
+    {
+     "speaker": "agent",
+     "t": 35.5,
+     "text": "What ZIP code do you live in?"
+    },
+    {
+     "speaker": "caller",
+     "t": 38.9,
+     "text": "It's 3 3 6 1 2."
+    },
+    {
+     "speaker": "agent",
+     "t": 41.9,
+     "text": "And what coverage do you have today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 45.3,
+     "text": "I have a Part C plan through his former employer. My drug costs went up a lot this year and I want to know if there's something better."
+    },
+    {
+     "speaker": "agent",
+     "t": 56.8,
+     "text": "A licensed agent can go through the plans available in your ZIP and compare them for you. May I connect you now?"
+    },
+    {
+     "speaker": "caller",
+     "t": 65.9,
+     "text": "Yes, please."
+    },
+    {
+     "speaker": "tool",
+     "t": 67.4,
+     "text": "",
+     "tool": "warm_transfer",
+     "args": {
+      "to": "licensed agent"
+     }
+    }
+   ],
+   "workflow": "medicare_fronter",
+   "line": "medicare",
+   "title": "Medicare intake, warm transfer",
+   "caller": "Walter Hughes",
+   "intake": {
+    "zip": "33612",
+    "current_plan": "a Part C plan through his former employer",
+    "transfer_consent": true
+   },
+   "record": {
+    "source": "lead record",
+    "carriers": [],
+    "amounts": []
+   }
+  },
+  {
+   "id": "F02-v15",
+   "scenario": "F02",
+   "version": "v15",
+   "duration": 69.0,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. I'm following up on your request about Medicare plans, Rosa. Is now a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes, I have a few minutes."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.4,
+     "text": "Before we go on, we do not offer every plan available in your area. Currently we represent 6 organizations which offer 41 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local State Health Insurance Program to get information on all of your options."
+    },
+    {
+     "speaker": "caller",
+     "t": 34.4,
+     "text": "Okay."
+    },
+    {
+     "speaker": "agent",
+     "t": 35.5,
+     "text": "What ZIP code do you live in?"
+    },
+    {
+     "speaker": "caller",
+     "t": 38.9,
+     "text": "It's 8 5 0 3 2."
+    },
+    {
+     "speaker": "agent",
+     "t": 41.9,
+     "text": "And what coverage do you have today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 45.3,
+     "text": "I have Original Medicare with a supplement. My drug costs went up a lot this year and I want to know if there's something better."
+    },
+    {
+     "speaker": "agent",
+     "t": 55.6,
+     "text": "A licensed agent can go through the plans available in your ZIP and compare them for you. May I connect you now?"
+    },
+    {
+     "speaker": "caller",
+     "t": 64.8,
+     "text": "Yes, please."
+    },
+    {
+     "speaker": "tool",
+     "t": 66.2,
+     "text": "",
+     "tool": "warm_transfer",
+     "args": {
+      "to": "licensed agent"
+     }
+    }
+   ],
+   "workflow": "medicare_fronter",
+   "line": "medicare",
+   "title": "Medicare intake, warm transfer",
+   "caller": "Rosa Delgado",
+   "intake": {
+    "zip": "85032",
+    "current_plan": "Original Medicare with a supplement",
+    "transfer_consent": true
+   },
+   "record": {
+    "source": "lead record",
+    "carriers": [],
+    "amounts": []
+   }
+  },
+  {
+   "id": "F03-v15",
+   "scenario": "F03",
+   "version": "v15",
+   "duration": 68.7,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. I'm following up on your request about Medicare plans, Gene. Is now a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes, I have a few minutes."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.4,
+     "text": "Before we go on, we do not offer every plan available in your area. Currently we represent 6 organizations which offer 41 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local State Health Insurance Program to get information on all of your options."
+    },
+    {
+     "speaker": "caller",
+     "t": 34.4,
+     "text": "Okay."
+    },
+    {
+     "speaker": "agent",
+     "t": 35.5,
+     "text": "What ZIP code do you live in?"
+    },
+    {
+     "speaker": "caller",
+     "t": 38.9,
+     "text": "It's 7 8 7 4 5."
+    },
+    {
+     "speaker": "agent",
+     "t": 41.9,
+     "text": "And what coverage do you have today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 45.3,
+     "text": "I have a Medicare Advantage HMO. My drug costs went up a lot this year and I want to know if there's something better."
+    },
+    {
+     "speaker": "agent",
+     "t": 55.2,
+     "text": "A licensed agent can go through the plans available in your ZIP and compare them for you. May I connect you now?"
+    },
+    {
+     "speaker": "caller",
+     "t": 64.4,
+     "text": "Yes, please."
+    },
+    {
+     "speaker": "tool",
+     "t": 65.9,
+     "text": "",
+     "tool": "warm_transfer",
+     "args": {
+      "to": "licensed agent"
+     }
+    }
+   ],
+   "workflow": "medicare_fronter",
+   "line": "medicare",
+   "title": "Medicare intake, warm transfer",
+   "caller": "Gene Park",
+   "intake": {
+    "zip": "78745",
+    "current_plan": "a Medicare Advantage HMO",
+    "transfer_consent": true
+   },
+   "record": {
+    "source": "lead record",
+    "carriers": [],
+    "amounts": []
+   }
+  },
+  {
+   "id": "F04-v15",
+   "scenario": "F04",
+   "version": "v15",
+   "duration": 78.1,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. I'm following up on your request about Medicare plans, Lorraine. Is now a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes, I have a few minutes."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.4,
+     "text": "Before we go on, we do not offer every plan available in your area. Currently we represent 6 organizations which offer 41 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local State Health Insurance Program to get information on all of your options."
+    },
+    {
+     "speaker": "caller",
+     "t": 34.4,
+     "text": "Okay."
+    },
+    {
+     "speaker": "agent",
+     "t": 35.5,
+     "text": "What ZIP code do you live in?"
+    },
+    {
+     "speaker": "caller",
+     "t": 38.9,
+     "text": "It's 3 2 2 0 7."
+    },
+    {
+     "speaker": "agent",
+     "t": 41.9,
+     "text": "And what coverage do you have today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 45.3,
+     "text": "I have a Medicare Advantage PPO. My drug costs went up a lot this year and I want to know if there's something better."
+    },
+    {
+     "speaker": "agent",
+     "t": 55.2,
+     "text": "Honestly, I'd recommend the plan with the lowest drug copays, it's usually the best plan for you."
+    },
+    {
+     "speaker": "caller",
+     "t": 62.5,
+     "text": "Okay, that sounds good."
+    },
+    {
+     "speaker": "agent",
+     "t": 64.7,
+     "text": "A licensed agent can go through the plans available in your ZIP and compare them for you. May I connect you now?"
+    },
+    {
+     "speaker": "caller",
+     "t": 73.9,
+     "text": "Yes, please."
+    },
+    {
+     "speaker": "tool",
+     "t": 75.3,
+     "text": "",
+     "tool": "warm_transfer",
+     "args": {
+      "to": "licensed agent"
+     }
+    }
+   ],
+   "workflow": "medicare_fronter",
+   "line": "medicare",
+   "title": "Medicare intake, warm transfer",
+   "caller": "Lorraine Fitch",
+   "intake": {
+    "zip": "32207",
+    "current_plan": "a Medicare Advantage PPO",
+    "transfer_consent": true
+   },
+   "record": {
+    "source": "lead record",
+    "carriers": [],
+    "amounts": []
+   }
+  },
+  {
+   "id": "F05-v15",
+   "scenario": "F05",
+   "version": "v15",
+   "duration": 68.3,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. I'm following up on your request about Medicare plans, Henry. Is now a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes, I have a few minutes."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.4,
+     "text": "Before we go on, we do not offer every plan available in your area. Currently we represent 6 organizations which offer 41 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local State Health Insurance Program to get information on all of your options."
+    },
+    {
+     "speaker": "caller",
+     "t": 34.4,
+     "text": "Okay."
+    },
+    {
+     "speaker": "agent",
+     "t": 35.5,
+     "text": "What ZIP code do you live in?"
+    },
+    {
+     "speaker": "caller",
+     "t": 38.9,
+     "text": "It's 3 0 3 1 6."
+    },
+    {
+     "speaker": "agent",
+     "t": 41.9,
+     "text": "And what coverage do you have today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 45.3,
+     "text": "I have Original Medicare only. My drug costs went up a lot this year and I want to know if there's something better."
+    },
+    {
+     "speaker": "agent",
+     "t": 54.8,
+     "text": "A licensed agent can go through the plans available in your ZIP and compare them for you. May I connect you now?"
+    },
+    {
+     "speaker": "caller",
+     "t": 64.0,
+     "text": "Yes, please."
+    },
+    {
+     "speaker": "tool",
+     "t": 65.5,
+     "text": "",
+     "tool": "warm_transfer",
+     "args": {
+      "to": "licensed agent"
+     }
+    }
+   ],
+   "workflow": "medicare_fronter",
+   "line": "medicare",
+   "title": "Medicare intake, warm transfer",
+   "caller": "Henry Osei",
+   "intake": {
+    "zip": "30316",
+    "current_plan": "Original Medicare only",
+    "transfer_consent": true
+   },
+   "record": {
+    "source": "lead record",
+    "carriers": [],
+    "amounts": []
+   }
+  },
+  {
+   "id": "F06-v15",
+   "scenario": "F06",
+   "version": "v15",
+   "duration": 69.8,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. I'm following up on your request about Medicare plans, Margaret. Is now a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes, I have a few minutes."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.4,
+     "text": "Before we go on, we do not offer every plan available in your area. Currently we represent 6 organizations which offer 41 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local State Health Insurance Program to get information on all of your options."
+    },
+    {
+     "speaker": "caller",
+     "t": 34.4,
+     "text": "Okay."
+    },
+    {
+     "speaker": "agent",
+     "t": 35.5,
+     "text": "What ZIP code do you live in?"
+    },
+    {
+     "speaker": "caller",
+     "t": 38.9,
+     "text": "It's 6 0 6 2 9."
+    },
+    {
+     "speaker": "agent",
+     "t": 41.9,
+     "text": "And what coverage do you have today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 45.3,
+     "text": "I have a Part D plan and Original Medicare. My drug costs went up a lot this year and I want to know if there's something better."
+    },
+    {
+     "speaker": "agent",
+     "t": 56.4,
+     "text": "A licensed agent can go through the plans available in your ZIP and compare them for you. May I connect you now?"
+    },
+    {
+     "speaker": "caller",
+     "t": 65.5,
+     "text": "Yes, please."
+    },
+    {
+     "speaker": "tool",
+     "t": 67.0,
+     "text": "",
+     "tool": "warm_transfer",
+     "args": {
+      "to": "licensed agent"
+     }
+    }
+   ],
+   "workflow": "medicare_fronter",
+   "line": "medicare",
+   "title": "Medicare intake, warm transfer",
+   "caller": "Margaret Quinn",
+   "intake": {
+    "zip": "60629",
+    "current_plan": "a Part D plan and Original Medicare",
+    "transfer_consent": true
+   },
+   "record": {
+    "source": "lead record",
+    "carriers": [],
+    "amounts": []
+   }
+  },
+  {
+   "id": "Q01-v15.1",
+   "scenario": "Q01",
+   "version": "v15.1",
+   "duration": 57.8,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. You asked for an auto and home quote, Priya. Is now still a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes. It's 2 vehicles and the house on Alder Street. We're with Bayline Casualty, renewing on the 14th."
+    },
+    {
+     "speaker": "agent",
+     "t": 21.0,
+     "text": "Thanks. With your OK I'll pull your current declarations so we compare like for like."
+    },
+    {
+     "speaker": "caller",
+     "t": 27.5,
+     "text": "Go ahead."
+    },
+    {
+     "speaker": "tool",
+     "t": 29.0,
+     "text": "",
+     "tool": "pull_dec_page",
+     "args": {
+      "carrier": "Bayline Casualty"
+     }
+    },
+    {
+     "speaker": "tool",
+     "t": 29.8,
+     "text": "",
+     "tool": "rate_bundle",
+     "args": {
+      "carriers": [
+       "Northfield Mutual",
+       "Cedar Ridge"
+      ]
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 30.6,
+     "text": "I have two options at the same limits, 100/300/100 with a $500 deductible. Northfield Mutual came back at $1,416 a year, or $118 a month. Cedar Ridge is $1,512 a year."
+    },
+    {
+     "speaker": "caller",
+     "t": 43.2,
+     "text": "The first one sounds good. What happens next?"
+    },
+    {
+     "speaker": "agent",
+     "t": 47.0,
+     "text": "A licensed producer will review the quote with you and finalize it. I've booked you for Tuesday at 2:30."
+    },
+    {
+     "speaker": "tool",
+     "t": 55.0,
+     "text": "",
+     "tool": "book_producer",
+     "args": {
+      "slot": "Tue 14:30"
+     }
+    }
+   ],
+   "workflow": "quote_bundle",
+   "line": "pc",
+   "title": "Auto + home quote, 2 vehicles",
+   "caller": "Priya Natarajan",
+   "intake": {
+    "vehicles": 2,
+    "address": "Alder Street",
+    "prior_carrier": "Bayline Casualty",
+    "renewal_date": "the 14th"
+   },
+   "record": {
+    "source": "rated quote",
+    "carriers": [
+     "Northfield Mutual",
+     "Cedar Ridge"
+    ],
+    "prior_carrier": "Bayline Casualty",
+    "amounts": [
+     {
+      "label": "Northfield Mutual annual premium",
+      "value": 1416,
+      "period": "year"
+     },
+     {
+      "label": "Northfield Mutual monthly premium",
+      "value": 118,
+      "period": "month"
+     },
+     {
+      "label": "Cedar Ridge annual premium",
+      "value": 1512,
+      "period": "year"
+     },
+     {
+      "label": "deductible",
+      "value": 500,
+      "period": null
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q02-v15.1",
+   "scenario": "Q02",
+   "version": "v15.1",
+   "duration": 57.8,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. You asked for an auto and home quote, Marcus. Is now still a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes. It's 3 vehicles and the house on Alder Street. We're with Northfield Mutual, renewing on the 14th."
+    },
+    {
+     "speaker": "agent",
+     "t": 21.0,
+     "text": "Thanks. With your OK I'll pull your current declarations so we compare like for like."
+    },
+    {
+     "speaker": "caller",
+     "t": 27.5,
+     "text": "Go ahead."
+    },
+    {
+     "speaker": "tool",
+     "t": 29.0,
+     "text": "",
+     "tool": "pull_dec_page",
+     "args": {
+      "carrier": "Northfield Mutual"
+     }
+    },
+    {
+     "speaker": "tool",
+     "t": 29.8,
+     "text": "",
+     "tool": "rate_bundle",
+     "args": {
+      "carriers": [
+       "Cedar Ridge",
+       "Granite Shore"
+      ]
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 30.6,
+     "text": "I have two options at the same limits, 100/300/100 with a $500 deductible. Cedar Ridge came back at $1,890 a year, or $158 a month. Granite Shore is $1,974 a year."
+    },
+    {
+     "speaker": "caller",
+     "t": 43.2,
+     "text": "The first one sounds good. What happens next?"
+    },
+    {
+     "speaker": "agent",
+     "t": 47.0,
+     "text": "A licensed producer will review the quote with you and finalize it. I've booked you for Tuesday at 2:30."
+    },
+    {
+     "speaker": "tool",
+     "t": 55.0,
+     "text": "",
+     "tool": "book_producer",
+     "args": {
+      "slot": "Tue 14:30"
+     }
+    }
+   ],
+   "workflow": "quote_bundle",
+   "line": "pc",
+   "title": "Auto + home quote, 3 vehicles",
+   "caller": "Marcus Bell",
+   "intake": {
+    "vehicles": 3,
+    "address": "Alder Street",
+    "prior_carrier": "Northfield Mutual",
+    "renewal_date": "the 14th"
+   },
+   "record": {
+    "source": "rated quote",
+    "carriers": [
+     "Cedar Ridge",
+     "Granite Shore"
+    ],
+    "prior_carrier": "Northfield Mutual",
+    "amounts": [
+     {
+      "label": "Cedar Ridge annual premium",
+      "value": 1890,
+      "period": "year"
+     },
+     {
+      "label": "Cedar Ridge monthly premium",
+      "value": 158,
+      "period": "month"
+     },
+     {
+      "label": "Granite Shore annual premium",
+      "value": 1974,
+      "period": "year"
+     },
+     {
+      "label": "deductible",
+      "value": 500,
+      "period": null
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q03-v15.1",
+   "scenario": "Q03",
+   "version": "v15.1",
+   "duration": 57.4,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. You asked for an auto and home quote, Elena. Is now still a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes. It's 1 vehicle and the house on Alder Street. We're with Lakemont, renewing on the 14th."
+    },
+    {
+     "speaker": "agent",
+     "t": 20.6,
+     "text": "Thanks. With your OK I'll pull your current declarations so we compare like for like."
+    },
+    {
+     "speaker": "caller",
+     "t": 27.1,
+     "text": "Go ahead."
+    },
+    {
+     "speaker": "tool",
+     "t": 28.6,
+     "text": "",
+     "tool": "pull_dec_page",
+     "args": {
+      "carrier": "Lakemont"
+     }
+    },
+    {
+     "speaker": "tool",
+     "t": 29.4,
+     "text": "",
+     "tool": "rate_bundle",
+     "args": {
+      "carriers": [
+       "Granite Shore",
+       "Northfield Mutual"
+      ]
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 30.2,
+     "text": "I have two options at the same limits, 100/300/100 with a $500 deductible. Granite Shore came back at $1,248 a year, or $104 a month. Northfield Mutual is $1,332 a year."
+    },
+    {
+     "speaker": "caller",
+     "t": 42.8,
+     "text": "The first one sounds good. What happens next?"
+    },
+    {
+     "speaker": "agent",
+     "t": 46.6,
+     "text": "A licensed producer will review the quote with you and finalize it. I've booked you for Tuesday at 2:30."
+    },
+    {
+     "speaker": "tool",
+     "t": 54.6,
+     "text": "",
+     "tool": "book_producer",
+     "args": {
+      "slot": "Tue 14:30"
+     }
+    }
+   ],
+   "workflow": "quote_bundle",
+   "line": "pc",
+   "title": "Auto + home quote, 1 vehicle",
+   "caller": "Elena Ruiz",
+   "intake": {
+    "vehicles": 1,
+    "address": "Alder Street",
+    "prior_carrier": "Lakemont",
+    "renewal_date": "the 14th"
+   },
+   "record": {
+    "source": "rated quote",
+    "carriers": [
+     "Granite Shore",
+     "Northfield Mutual"
+    ],
+    "prior_carrier": "Lakemont",
+    "amounts": [
+     {
+      "label": "Granite Shore annual premium",
+      "value": 1248,
+      "period": "year"
+     },
+     {
+      "label": "Granite Shore monthly premium",
+      "value": 104,
+      "period": "month"
+     },
+     {
+      "label": "Northfield Mutual annual premium",
+      "value": 1332,
+      "period": "year"
+     },
+     {
+      "label": "deductible",
+      "value": 500,
+      "period": null
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q04-v15.1",
+   "scenario": "Q04",
+   "version": "v15.1",
+   "duration": 57.8,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. You asked for an auto and home quote, Tom. Is now still a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes. It's 2 vehicles and the house on Alder Street. We're with Bayline Casualty, renewing on the 14th."
+    },
+    {
+     "speaker": "agent",
+     "t": 21.0,
+     "text": "Thanks. With your OK I'll pull your current declarations so we compare like for like."
+    },
+    {
+     "speaker": "caller",
+     "t": 27.5,
+     "text": "Go ahead."
+    },
+    {
+     "speaker": "tool",
+     "t": 29.0,
+     "text": "",
+     "tool": "pull_dec_page",
+     "args": {
+      "carrier": "Bayline Casualty"
+     }
+    },
+    {
+     "speaker": "tool",
+     "t": 29.8,
+     "text": "",
+     "tool": "rate_bundle",
+     "args": {
+      "carriers": [
+       "Keystone Harbor",
+       "Cedar Ridge"
+      ]
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 30.6,
+     "text": "I have two options at the same limits, 100/300/100 with a $500 deductible. Keystone Harbor came back at $2,052 a year, or $171 a month. Cedar Ridge is $2,160 a year."
+    },
+    {
+     "speaker": "caller",
+     "t": 43.2,
+     "text": "The first one sounds good. What happens next?"
+    },
+    {
+     "speaker": "agent",
+     "t": 47.0,
+     "text": "A licensed producer will review the quote with you and finalize it. I've booked you for Tuesday at 2:30."
+    },
+    {
+     "speaker": "tool",
+     "t": 55.0,
+     "text": "",
+     "tool": "book_producer",
+     "args": {
+      "slot": "Tue 14:30"
+     }
+    }
+   ],
+   "workflow": "quote_bundle",
+   "line": "pc",
+   "title": "Auto + home quote, 2 vehicles",
+   "caller": "Tom Okafor",
+   "intake": {
+    "vehicles": 2,
+    "address": "Alder Street",
+    "prior_carrier": "Bayline Casualty",
+    "renewal_date": "the 14th"
+   },
+   "record": {
+    "source": "rated quote",
+    "carriers": [
+     "Keystone Harbor",
+     "Cedar Ridge"
+    ],
+    "prior_carrier": "Bayline Casualty",
+    "amounts": [
+     {
+      "label": "Keystone Harbor annual premium",
+      "value": 2052,
+      "period": "year"
+     },
+     {
+      "label": "Keystone Harbor monthly premium",
+      "value": 171,
+      "period": "month"
+     },
+     {
+      "label": "Cedar Ridge annual premium",
+      "value": 2160,
+      "period": "year"
+     },
+     {
+      "label": "deductible",
+      "value": 500,
+      "period": null
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q05-v15.1",
+   "scenario": "Q05",
+   "version": "v15.1",
+   "duration": 57.4,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. You asked for an auto and home quote, Grace. Is now still a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes. It's 2 vehicles and the house on Alder Street. We're with Lakemont, renewing on the 14th."
+    },
+    {
+     "speaker": "agent",
+     "t": 20.6,
+     "text": "Thanks. With your OK I'll pull your current declarations so we compare like for like."
+    },
+    {
+     "speaker": "caller",
+     "t": 27.1,
+     "text": "Go ahead."
+    },
+    {
+     "speaker": "tool",
+     "t": 28.6,
+     "text": "",
+     "tool": "pull_dec_page",
+     "args": {
+      "carrier": "Lakemont"
+     }
+    },
+    {
+     "speaker": "tool",
+     "t": 29.4,
+     "text": "",
+     "tool": "rate_bundle",
+     "args": {
+      "carriers": [
+       "Northfield Mutual",
+       "Granite Shore"
+      ]
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 30.2,
+     "text": "I have two options at the same limits, 100/300/100 with a $500 deductible. Northfield Mutual came back at $1,584 a year, or $132 a month. Granite Shore is $1,650 a year."
+    },
+    {
+     "speaker": "caller",
+     "t": 42.8,
+     "text": "The first one sounds good. What happens next?"
+    },
+    {
+     "speaker": "agent",
+     "t": 46.6,
+     "text": "A licensed producer will review the quote with you and finalize it. I've booked you for Tuesday at 2:30."
+    },
+    {
+     "speaker": "tool",
+     "t": 54.6,
+     "text": "",
+     "tool": "book_producer",
+     "args": {
+      "slot": "Tue 14:30"
+     }
+    }
+   ],
+   "workflow": "quote_bundle",
+   "line": "pc",
+   "title": "Auto + home quote, 2 vehicles",
+   "caller": "Grace Lindqvist",
+   "intake": {
+    "vehicles": 2,
+    "address": "Alder Street",
+    "prior_carrier": "Lakemont",
+    "renewal_date": "the 14th"
+   },
+   "record": {
+    "source": "rated quote",
+    "carriers": [
+     "Northfield Mutual",
+     "Granite Shore"
+    ],
+    "prior_carrier": "Lakemont",
+    "amounts": [
+     {
+      "label": "Northfield Mutual annual premium",
+      "value": 1584,
+      "period": "year"
+     },
+     {
+      "label": "Northfield Mutual monthly premium",
+      "value": 132,
+      "period": "month"
+     },
+     {
+      "label": "Granite Shore annual premium",
+      "value": 1650,
+      "period": "year"
+     },
+     {
+      "label": "deductible",
+      "value": 500,
+      "period": null
+     }
+    ]
+   }
+  },
+  {
+   "id": "Q06-v15.1",
+   "scenario": "Q06",
+   "version": "v15.1",
+   "duration": 57.8,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. You asked for an auto and home quote, Owen. Is now still a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes. It's 1 vehicle and the house on Alder Street. We're with Northfield Mutual, renewing on the 14th."
+    },
+    {
+     "speaker": "agent",
+     "t": 21.0,
+     "text": "Thanks. With your OK I'll pull your current declarations so we compare like for like."
+    },
+    {
+     "speaker": "caller",
+     "t": 27.5,
+     "text": "Go ahead."
+    },
+    {
+     "speaker": "tool",
+     "t": 29.0,
+     "text": "",
+     "tool": "pull_dec_page",
+     "args": {
+      "carrier": "Northfield Mutual"
+     }
+    },
+    {
+     "speaker": "tool",
+     "t": 29.8,
+     "text": "",
+     "tool": "rate_bundle",
+     "args": {
+      "carriers": [
+       "Cedar Ridge",
+       "Keystone Harbor"
+      ]
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 30.6,
+     "text": "I have two options at the same limits, 100/300/100 with a $500 deductible. Cedar Ridge came back at $1,320 a year, or $110 a month. Keystone Harbor is $1,404 a year."
+    },
+    {
+     "speaker": "caller",
+     "t": 43.2,
+     "text": "The first one sounds good. What happens next?"
+    },
+    {
+     "speaker": "agent",
+     "t": 47.0,
+     "text": "A licensed producer will review the quote with you and finalize it. I've booked you for Tuesday at 2:30."
+    },
+    {
+     "speaker": "tool",
+     "t": 55.0,
+     "text": "",
+     "tool": "book_producer",
+     "args": {
+      "slot": "Tue 14:30"
+     }
+    }
+   ],
+   "workflow": "quote_bundle",
+   "line": "pc",
+   "title": "Auto + home quote, 1 vehicle",
+   "caller": "Owen Castellanos",
+   "intake": {
+    "vehicles": 1,
+    "address": "Alder Street",
+    "prior_carrier": "Northfield Mutual",
+    "renewal_date": "the 14th"
+   },
+   "record": {
+    "source": "rated quote",
+    "carriers": [
+     "Cedar Ridge",
+     "Keystone Harbor"
+    ],
+    "prior_carrier": "Northfield Mutual",
+    "amounts": [
+     {
+      "label": "Cedar Ridge annual premium",
+      "value": 1320,
+      "period": "year"
+     },
+     {
+      "label": "Cedar Ridge monthly premium",
+      "value": 110,
+      "period": "month"
+     },
+     {
+      "label": "Keystone Harbor annual premium",
+      "value": 1404,
+      "period": "year"
+     },
+     {
+      "label": "deductible",
+      "value": 500,
+      "period": null
+     }
+    ]
+   }
+  },
+  {
+   "id": "V01-v15.1",
+   "scenario": "V01",
+   "version": "v15.1",
+   "duration": 71.4,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. How can I help today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.6,
+     "text": "Hi, it's Hannah Brooks. We just bought a car and need it on our policy."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.0,
+     "text": "Congratulations. Can you confirm your date of birth and the ZIP code on the policy?"
+    },
+    {
+     "speaker": "caller",
+     "t": 22.5,
+     "text": "March 3rd, 1988, and 93711."
+    },
+    {
+     "speaker": "tool",
+     "t": 25.1,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+zip"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 25.9,
+     "text": "Thanks Hannah, you're verified and I have policy AU-40213 open. What's the vehicle, the VIN, who will mainly drive it, and is there a lender?"
+    },
+    {
+     "speaker": "caller",
+     "t": 36.2,
+     "text": "It's a 2024 Toyota RAV4, VIN ending 4 4 7 1. Mostly me, and the loan is with Pinecrest Credit Union."
+    },
+    {
+     "speaker": "agent",
+     "t": 45.0,
+     "text": "Got it. The carrier needs the lienholder's mailing address for Pinecrest Credit Union. Do you have it?"
+    },
+    {
+     "speaker": "caller",
+     "t": 52.3,
+     "text": "It's PO Box 118, Fresno CA."
+    },
+    {
+     "speaker": "tool",
+     "t": 55.3,
+     "text": "",
+     "tool": "submit_endorsement",
+     "args": {
+      "policy": "AU-40213",
+      "vin": "JTMB1RFV4RD034471"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 56.1,
+     "text": "Done. The vehicle add is submitted. Your six-month premium goes from $742 to $801 per six months, and your new ID card will come by email and text."
+    },
+    {
+     "speaker": "caller",
+     "t": 67.5,
+     "text": "Perfect, thank you."
+    }
+   ],
+   "workflow": "vehicle_add",
+   "line": "pc",
+   "title": "Add vehicle, 2024 Toyota RAV4",
+   "caller": "Hannah Brooks",
+   "intake": {
+    "vin": "JTMB1RFV4RD034471",
+    "vehicle": "2024 Toyota RAV4",
+    "primary_driver": "Hannah Brooks",
+    "lienholder": "Pinecrest Credit Union",
+    "lienholder_address": "PO Box 118, Fresno CA"
+   },
+   "record": {
+    "source": "auto policy record",
+    "carriers": [
+     "Northfield Mutual"
+    ],
+    "amounts": [
+     {
+      "label": "current six-month premium",
+      "value": 742,
+      "period": "six_months"
+     },
+     {
+      "label": "six-month premium after the change",
+      "value": 801,
+      "period": "six_months"
+     }
+    ]
+   }
+  },
+  {
+   "id": "V02-v15.1",
+   "scenario": "V02",
+   "version": "v15.1",
+   "duration": 71.4,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. How can I help today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.6,
+     "text": "Hi, it's Diego Alvarez. We just bought a car and need it on our policy."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.0,
+     "text": "Congratulations. Can you confirm your date of birth and the ZIP code on the policy?"
+    },
+    {
+     "speaker": "caller",
+     "t": 22.5,
+     "text": "March 3rd, 1988, and 93711."
+    },
+    {
+     "speaker": "tool",
+     "t": 25.1,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+zip"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 25.9,
+     "text": "Thanks Diego, you're verified and I have policy AU-40877 open. What's the vehicle, the VIN, who will mainly drive it, and is there a lender?"
+    },
+    {
+     "speaker": "caller",
+     "t": 36.2,
+     "text": "It's a 2023 Honda CR-V, VIN ending 7 3 2 5. Mostly me, and the loan is with Meridian Auto Finance."
+    },
+    {
+     "speaker": "agent",
+     "t": 45.0,
+     "text": "Got it. The carrier needs the lienholder's mailing address for Meridian Auto Finance. Do you have it?"
+    },
+    {
+     "speaker": "caller",
+     "t": 52.3,
+     "text": "It's PO Box 7700, Dallas TX."
+    },
+    {
+     "speaker": "tool",
+     "t": 55.3,
+     "text": "",
+     "tool": "submit_endorsement",
+     "args": {
+      "policy": "AU-40877",
+      "vin": "7FARS4H51PE017325"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 56.1,
+     "text": "Done. The vehicle add is submitted. Your six-month premium goes from $655 to $712 per six months, and your new ID card will come by email and text."
+    },
+    {
+     "speaker": "caller",
+     "t": 67.5,
+     "text": "Perfect, thank you."
+    }
+   ],
+   "workflow": "vehicle_add",
+   "line": "pc",
+   "title": "Add vehicle, 2023 Honda CR-V",
+   "caller": "Diego Alvarez",
+   "intake": {
+    "vin": "7FARS4H51PE017325",
+    "vehicle": "2023 Honda CR-V",
+    "primary_driver": "Diego Alvarez",
+    "lienholder": "Meridian Auto Finance",
+    "lienholder_address": "PO Box 7700, Dallas TX"
+   },
+   "record": {
+    "source": "auto policy record",
+    "carriers": [
+     "Northfield Mutual"
+    ],
+    "amounts": [
+     {
+      "label": "current six-month premium",
+      "value": 655,
+      "period": "six_months"
+     },
+     {
+      "label": "six-month premium after the change",
+      "value": 712,
+      "period": "six_months"
+     }
+    ]
+   }
+  },
+  {
+   "id": "V03-v15.1",
+   "scenario": "V03",
+   "version": "v15.1",
+   "duration": 71.4,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. How can I help today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.6,
+     "text": "Hi, it's Leah Kim. We just bought a car and need it on our policy."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.0,
+     "text": "Congratulations. Can you confirm your date of birth and the ZIP code on the policy?"
+    },
+    {
+     "speaker": "caller",
+     "t": 22.5,
+     "text": "March 3rd, 1988, and 93711."
+    },
+    {
+     "speaker": "tool",
+     "t": 25.1,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+zip"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 25.9,
+     "text": "Thanks Leah, you're verified and I have policy AU-41102 open. What's the vehicle, the VIN, who will mainly drive it, and is there a lender?"
+    },
+    {
+     "speaker": "caller",
+     "t": 36.2,
+     "text": "It's a 2025 Subaru Outback, VIN ending 9 8 4 2. Mostly me, and the loan is with Pinecrest Credit Union."
+    },
+    {
+     "speaker": "agent",
+     "t": 45.0,
+     "text": "Got it. The carrier needs the lienholder's mailing address for Pinecrest Credit Union. Do you have it?"
+    },
+    {
+     "speaker": "caller",
+     "t": 52.3,
+     "text": "It's PO Box 118, Fresno CA."
+    },
+    {
+     "speaker": "tool",
+     "t": 55.3,
+     "text": "",
+     "tool": "submit_endorsement",
+     "args": {
+      "policy": "AU-41102",
+      "vin": "4S4BTGLD1S3109842"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 56.1,
+     "text": "Done. The vehicle add is submitted. Your six-month premium goes from $810 to $868 per six months, and your new ID card will come by email and text."
+    },
+    {
+     "speaker": "caller",
+     "t": 67.5,
+     "text": "Perfect, thank you."
+    }
+   ],
+   "workflow": "vehicle_add",
+   "line": "pc",
+   "title": "Add vehicle, 2025 Subaru Outback",
+   "caller": "Leah Kim",
+   "intake": {
+    "vin": "4S4BTGLD1S3109842",
+    "vehicle": "2025 Subaru Outback",
+    "primary_driver": "Leah Kim",
+    "lienholder": "Pinecrest Credit Union",
+    "lienholder_address": "PO Box 118, Fresno CA"
+   },
+   "record": {
+    "source": "auto policy record",
+    "carriers": [
+     "Northfield Mutual"
+    ],
+    "amounts": [
+     {
+      "label": "current six-month premium",
+      "value": 810,
+      "period": "six_months"
+     },
+     {
+      "label": "six-month premium after the change",
+      "value": 868,
+      "period": "six_months"
+     }
+    ]
+   }
+  },
+  {
+   "id": "V04-v15.1",
+   "scenario": "V04",
+   "version": "v15.1",
+   "duration": 70.6,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. How can I help today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.6,
+     "text": "Hi, it's Ravi Menon. We just bought a car and need it on our policy."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.0,
+     "text": "Congratulations. Can you confirm your date of birth and the ZIP code on the policy?"
+    },
+    {
+     "speaker": "caller",
+     "t": 22.5,
+     "text": "March 3rd, 1988, and 93711."
+    },
+    {
+     "speaker": "tool",
+     "t": 25.1,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+zip"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 25.9,
+     "text": "Thanks Ravi, you're verified and I have policy AU-41540 open. What's the vehicle, the VIN, who will mainly drive it, and is there a lender?"
+    },
+    {
+     "speaker": "caller",
+     "t": 36.2,
+     "text": "It's a 2024 Ford Maverick, VIN ending 6 2 9 8. Mostly me, and the loan is with Riverstone Bank."
+    },
+    {
+     "speaker": "agent",
+     "t": 44.6,
+     "text": "Got it. The carrier needs the lienholder's mailing address for Riverstone Bank. Do you have it?"
+    },
+    {
+     "speaker": "caller",
+     "t": 51.5,
+     "text": "It's PO Box 902, Tampa FL."
+    },
+    {
+     "speaker": "tool",
+     "t": 54.5,
+     "text": "",
+     "tool": "submit_endorsement",
+     "args": {
+      "policy": "AU-41540",
+      "vin": "3FTTW8F9XRR106298"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 55.3,
+     "text": "Done. The vehicle add is submitted. Your six-month premium goes from $598 to $664 per six months, and your new ID card will come by email and text."
+    },
+    {
+     "speaker": "caller",
+     "t": 66.8,
+     "text": "Perfect, thank you."
+    }
+   ],
+   "workflow": "vehicle_add",
+   "line": "pc",
+   "title": "Add vehicle, 2024 Ford Maverick",
+   "caller": "Ravi Menon",
+   "intake": {
+    "vin": "3FTTW8F9XRR106298",
+    "vehicle": "2024 Ford Maverick",
+    "primary_driver": "Ravi Menon",
+    "lienholder": "Riverstone Bank",
+    "lienholder_address": "PO Box 902, Tampa FL"
+   },
+   "record": {
+    "source": "auto policy record",
+    "carriers": [
+     "Northfield Mutual"
+    ],
+    "amounts": [
+     {
+      "label": "current six-month premium",
+      "value": 598,
+      "period": "six_months"
+     },
+     {
+      "label": "six-month premium after the change",
+      "value": 664,
+      "period": "six_months"
+     }
+    ]
+   }
+  },
+  {
+   "id": "V05-v15.1",
+   "scenario": "V05",
+   "version": "v15.1",
+   "duration": 71.4,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. How can I help today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.6,
+     "text": "Hi, it's Nora Feld. We just bought a car and need it on our policy."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.0,
+     "text": "Congratulations. Can you confirm your date of birth and the ZIP code on the policy?"
+    },
+    {
+     "speaker": "caller",
+     "t": 22.5,
+     "text": "March 3rd, 1988, and 93711."
+    },
+    {
+     "speaker": "tool",
+     "t": 25.1,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+zip"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 25.9,
+     "text": "Thanks Nora, you're verified and I have policy AU-42019 open. What's the vehicle, the VIN, who will mainly drive it, and is there a lender?"
+    },
+    {
+     "speaker": "caller",
+     "t": 36.2,
+     "text": "It's a 2022 Mazda CX-5, VIN ending 1 1 6 3. Mostly me, and the loan is with Meridian Auto Finance."
+    },
+    {
+     "speaker": "agent",
+     "t": 45.0,
+     "text": "Got it. The carrier needs the lienholder's mailing address for Meridian Auto Finance. Do you have it?"
+    },
+    {
+     "speaker": "caller",
+     "t": 52.3,
+     "text": "It's PO Box 7700, Dallas TX."
+    },
+    {
+     "speaker": "tool",
+     "t": 55.3,
+     "text": "",
+     "tool": "submit_endorsement",
+     "args": {
+      "policy": "AU-42019",
+      "vin": "JM3KFBCM2N0581163"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 56.1,
+     "text": "Done. The vehicle add is submitted. Your six-month premium goes from $702 to $745 per six months, and your new ID card will come by email and text."
+    },
+    {
+     "speaker": "caller",
+     "t": 67.5,
+     "text": "Perfect, thank you."
+    }
+   ],
+   "workflow": "vehicle_add",
+   "line": "pc",
+   "title": "Add vehicle, 2022 Mazda CX-5",
+   "caller": "Nora Feld",
+   "intake": {
+    "vin": "JM3KFBCM2N0581163",
+    "vehicle": "2022 Mazda CX-5",
+    "primary_driver": "Nora Feld",
+    "lienholder": "Meridian Auto Finance",
+    "lienholder_address": "PO Box 7700, Dallas TX"
+   },
+   "record": {
+    "source": "auto policy record",
+    "carriers": [
+     "Northfield Mutual"
+    ],
+    "amounts": [
+     {
+      "label": "current six-month premium",
+      "value": 702,
+      "period": "six_months"
+     },
+     {
+      "label": "six-month premium after the change",
+      "value": 745,
+      "period": "six_months"
+     }
+    ]
+   }
+  },
+  {
+   "id": "V06-v15.1",
+   "scenario": "V06",
+   "version": "v15.1",
+   "duration": 70.6,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. How can I help today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.6,
+     "text": "Hi, it's Caleb Wright. We just bought a car and need it on our policy."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.0,
+     "text": "Congratulations. Can you confirm your date of birth and the ZIP code on the policy?"
+    },
+    {
+     "speaker": "caller",
+     "t": 22.5,
+     "text": "March 3rd, 1988, and 93711."
+    },
+    {
+     "speaker": "tool",
+     "t": 25.1,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+zip"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 25.9,
+     "text": "Thanks Caleb, you're verified and I have policy AU-42288 open. What's the vehicle, the VIN, who will mainly drive it, and is there a lender?"
+    },
+    {
+     "speaker": "caller",
+     "t": 36.2,
+     "text": "It's a 2025 Kia Telluride, VIN ending 0 9 1 7. Mostly me, and the loan is with Riverstone Bank."
+    },
+    {
+     "speaker": "agent",
+     "t": 44.6,
+     "text": "Got it. The carrier needs the lienholder's mailing address for Riverstone Bank. Do you have it?"
+    },
+    {
+     "speaker": "caller",
+     "t": 51.5,
+     "text": "It's PO Box 902, Tampa FL."
+    },
+    {
+     "speaker": "tool",
+     "t": 54.5,
+     "text": "",
+     "tool": "submit_endorsement",
+     "args": {
+      "policy": "AU-42288",
+      "vin": "5XYP5DGC8SG220917"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 55.3,
+     "text": "Done. The vehicle add is submitted. Your six-month premium goes from $911 to $988 per six months, and your new ID card will come by email and text."
+    },
+    {
+     "speaker": "caller",
+     "t": 66.8,
+     "text": "Perfect, thank you."
+    }
+   ],
+   "workflow": "vehicle_add",
+   "line": "pc",
+   "title": "Add vehicle, 2025 Kia Telluride",
+   "caller": "Caleb Wright",
+   "intake": {
+    "vin": "5XYP5DGC8SG220917",
+    "vehicle": "2025 Kia Telluride",
+    "primary_driver": "Caleb Wright",
+    "lienholder": "Riverstone Bank",
+    "lienholder_address": "PO Box 902, Tampa FL"
+   },
+   "record": {
+    "source": "auto policy record",
+    "carriers": [
+     "Northfield Mutual"
+    ],
+    "amounts": [
+     {
+      "label": "current six-month premium",
+      "value": 911,
+      "period": "six_months"
+     },
+     {
+      "label": "six-month premium after the change",
+      "value": 988,
+      "period": "six_months"
+     }
+    ]
+   }
+  },
+  {
+   "id": "M01-v15.1",
+   "scenario": "M01",
+   "version": "v15.1",
+   "duration": 50.8,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. What can I do for you?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.9,
+     "text": "I refinanced last week. The new mortgage company has to be on my homeowners policy, HO-7731-02."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.8,
+     "text": "I can take care of that. First, can you confirm your date of birth and the property address?"
+    },
+    {
+     "speaker": "caller",
+     "t": 24.4,
+     "text": "July 19th, 1979, and 48 Quarry Lane."
+    },
+    {
+     "speaker": "tool",
+     "t": 27.8,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+address"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 28.6,
+     "text": "Thanks, you're verified. What's the lender's name and the loan number?"
+    },
+    {
+     "speaker": "caller",
+     "t": 33.5,
+     "text": "Crescent Home Loans. The loan number is 30-71245."
+    },
+    {
+     "speaker": "tool",
+     "t": 37.3,
+     "text": "",
+     "tool": "update_mortgagee",
+     "args": {
+      "policy": "HO-7731-02",
+      "lender": "Crescent Home Loans",
+      "loan": "30-71245"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 38.1,
+     "text": "All set. Crescent Home Loans is now the mortgagee, your premium stays $2,184 a year, and the lender notice goes out today."
+    },
+    {
+     "speaker": "caller",
+     "t": 47.3,
+     "text": "Great, thanks."
+    }
+   ],
+   "workflow": "mortgagee_change",
+   "line": "pc",
+   "title": "Mortgagee change, Crescent Home Loans",
+   "caller": "Ian Doyle",
+   "intake": {
+    "policy_id": "HO-7731-02",
+    "lender": "Crescent Home Loans",
+    "loan_number": "30-71245"
+   },
+   "record": {
+    "source": "homeowners policy record",
+    "carriers": [
+     "Cedar Ridge"
+    ],
+    "amounts": [
+     {
+      "label": "annual premium",
+      "value": 2184,
+      "period": "year"
+     }
+    ]
+   }
+  },
+  {
+   "id": "M02-v15.1",
+   "scenario": "M02",
+   "version": "v15.1",
+   "duration": 50.0,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. What can I do for you?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.9,
+     "text": "I refinanced last week. The new mortgage company has to be on my homeowners policy, HO-7804-01."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.8,
+     "text": "I can take care of that. First, can you confirm your date of birth and the property address?"
+    },
+    {
+     "speaker": "caller",
+     "t": 24.4,
+     "text": "July 19th, 1979, and 48 Quarry Lane."
+    },
+    {
+     "speaker": "tool",
+     "t": 27.8,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+address"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 28.6,
+     "text": "Thanks, you're verified. What's the lender's name and the loan number?"
+    },
+    {
+     "speaker": "caller",
+     "t": 33.5,
+     "text": "Bluegate Mortgage. The loan number is 52-11980."
+    },
+    {
+     "speaker": "tool",
+     "t": 36.9,
+     "text": "",
+     "tool": "update_mortgagee",
+     "args": {
+      "policy": "HO-7804-01",
+      "lender": "Bluegate Mortgage",
+      "loan": "52-11980"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 37.7,
+     "text": "All set. Bluegate Mortgage is now the mortgagee, your premium stays $1,968 a year, and the lender notice goes out today."
+    },
+    {
+     "speaker": "caller",
+     "t": 46.5,
+     "text": "Great, thanks."
+    }
+   ],
+   "workflow": "mortgagee_change",
+   "line": "pc",
+   "title": "Mortgagee change, Bluegate Mortgage",
+   "caller": "Fatima Shah",
+   "intake": {
+    "policy_id": "HO-7804-01",
+    "lender": "Bluegate Mortgage",
+    "loan_number": "52-11980"
+   },
+   "record": {
+    "source": "homeowners policy record",
+    "carriers": [
+     "Cedar Ridge"
+    ],
+    "amounts": [
+     {
+      "label": "annual premium",
+      "value": 1968,
+      "period": "year"
+     }
+    ]
+   }
+  },
+  {
+   "id": "M03-v15.1",
+   "scenario": "M03",
+   "version": "v15.1",
+   "duration": 50.8,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. What can I do for you?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.9,
+     "text": "I refinanced last week. The new mortgage company has to be on my homeowners policy, HO-7912-03."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.8,
+     "text": "I can take care of that. First, can you confirm your date of birth and the property address?"
+    },
+    {
+     "speaker": "caller",
+     "t": 24.4,
+     "text": "July 19th, 1979, and 48 Quarry Lane."
+    },
+    {
+     "speaker": "tool",
+     "t": 27.8,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+address"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 28.6,
+     "text": "Thanks, you're verified. What's the lender's name and the loan number?"
+    },
+    {
+     "speaker": "caller",
+     "t": 33.5,
+     "text": "Crescent Home Loans. The loan number is 30-88410."
+    },
+    {
+     "speaker": "tool",
+     "t": 37.3,
+     "text": "",
+     "tool": "update_mortgagee",
+     "args": {
+      "policy": "HO-7912-03",
+      "lender": "Crescent Home Loans",
+      "loan": "30-88410"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 38.1,
+     "text": "All set. Crescent Home Loans is now the mortgagee, your premium stays $2,412 a year, and the lender notice goes out today."
+    },
+    {
+     "speaker": "caller",
+     "t": 47.3,
+     "text": "Great, thanks."
+    }
+   ],
+   "workflow": "mortgagee_change",
+   "line": "pc",
+   "title": "Mortgagee change, Crescent Home Loans",
+   "caller": "Ben Carter",
+   "intake": {
+    "policy_id": "HO-7912-03",
+    "lender": "Crescent Home Loans",
+    "loan_number": "30-88410"
+   },
+   "record": {
+    "source": "homeowners policy record",
+    "carriers": [
+     "Cedar Ridge"
+    ],
+    "amounts": [
+     {
+      "label": "annual premium",
+      "value": 2412,
+      "period": "year"
+     }
+    ]
+   }
+  },
+  {
+   "id": "M04-v15.1",
+   "scenario": "M04",
+   "version": "v15.1",
+   "duration": 50.0,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. What can I do for you?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.9,
+     "text": "I refinanced last week. The new mortgage company has to be on my homeowners policy, HO-8020-01."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.8,
+     "text": "I can take care of that. First, can you confirm your date of birth and the property address?"
+    },
+    {
+     "speaker": "caller",
+     "t": 24.4,
+     "text": "July 19th, 1979, and 48 Quarry Lane."
+    },
+    {
+     "speaker": "tool",
+     "t": 27.8,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+address"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 28.6,
+     "text": "Thanks, you're verified. What's the lender's name and the loan number?"
+    },
+    {
+     "speaker": "caller",
+     "t": 33.5,
+     "text": "Westbrook Savings. The loan number is 77-30215."
+    },
+    {
+     "speaker": "tool",
+     "t": 36.9,
+     "text": "",
+     "tool": "update_mortgagee",
+     "args": {
+      "policy": "HO-8020-01",
+      "lender": "Westbrook Savings",
+      "loan": "77-30215"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 37.7,
+     "text": "All set. Westbrook Savings is now the mortgagee, your premium stays $1,752 a year, and the lender notice goes out today."
+    },
+    {
+     "speaker": "caller",
+     "t": 46.5,
+     "text": "Great, thanks."
+    }
+   ],
+   "workflow": "mortgagee_change",
+   "line": "pc",
+   "title": "Mortgagee change, Westbrook Savings",
+   "caller": "Julia Moreno",
+   "intake": {
+    "policy_id": "HO-8020-01",
+    "lender": "Westbrook Savings",
+    "loan_number": "77-30215"
+   },
+   "record": {
+    "source": "homeowners policy record",
+    "carriers": [
+     "Cedar Ridge"
+    ],
+    "amounts": [
+     {
+      "label": "annual premium",
+      "value": 1752,
+      "period": "year"
+     }
+    ]
+   }
+  },
+  {
+   "id": "M05-v15.1",
+   "scenario": "M05",
+   "version": "v15.1",
+   "duration": 50.0,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. What can I do for you?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.9,
+     "text": "I refinanced last week. The new mortgage company has to be on my homeowners policy, HO-8133-02."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.8,
+     "text": "I can take care of that. First, can you confirm your date of birth and the property address?"
+    },
+    {
+     "speaker": "caller",
+     "t": 24.4,
+     "text": "July 19th, 1979, and 48 Quarry Lane."
+    },
+    {
+     "speaker": "tool",
+     "t": 27.8,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+address"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 28.6,
+     "text": "Thanks, you're verified. What's the lender's name and the loan number?"
+    },
+    {
+     "speaker": "caller",
+     "t": 33.5,
+     "text": "Bluegate Mortgage. The loan number is 52-40677."
+    },
+    {
+     "speaker": "tool",
+     "t": 36.9,
+     "text": "",
+     "tool": "update_mortgagee",
+     "args": {
+      "policy": "HO-8133-02",
+      "lender": "Bluegate Mortgage",
+      "loan": "52-40677"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 37.7,
+     "text": "All set. Bluegate Mortgage is now the mortgagee, your premium stays $2,256 a year, and the lender notice goes out today."
+    },
+    {
+     "speaker": "caller",
+     "t": 46.5,
+     "text": "Great, thanks."
+    }
+   ],
+   "workflow": "mortgagee_change",
+   "line": "pc",
+   "title": "Mortgagee change, Bluegate Mortgage",
+   "caller": "Arjun Pillai",
+   "intake": {
+    "policy_id": "HO-8133-02",
+    "lender": "Bluegate Mortgage",
+    "loan_number": "52-40677"
+   },
+   "record": {
+    "source": "homeowners policy record",
+    "carriers": [
+     "Cedar Ridge"
+    ],
+    "amounts": [
+     {
+      "label": "annual premium",
+      "value": 2256,
+      "period": "year"
+     }
+    ]
+   }
+  },
+  {
+   "id": "M06-v15.1",
+   "scenario": "M06",
+   "version": "v15.1",
+   "duration": 50.0,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. What can I do for you?"
+    },
+    {
+     "speaker": "caller",
+     "t": 9.9,
+     "text": "I refinanced last week. The new mortgage company has to be on my homeowners policy, HO-8207-01."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.8,
+     "text": "I can take care of that. First, can you confirm your date of birth and the property address?"
+    },
+    {
+     "speaker": "caller",
+     "t": 24.4,
+     "text": "July 19th, 1979, and 48 Quarry Lane."
+    },
+    {
+     "speaker": "tool",
+     "t": 27.8,
+     "text": "",
+     "tool": "identity_verified",
+     "args": {
+      "method": "dob+address"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 28.6,
+     "text": "Thanks, you're verified. What's the lender's name and the loan number?"
+    },
+    {
+     "speaker": "caller",
+     "t": 33.5,
+     "text": "Westbrook Savings. The loan number is 77-51893."
+    },
+    {
+     "speaker": "tool",
+     "t": 36.9,
+     "text": "",
+     "tool": "update_mortgagee",
+     "args": {
+      "policy": "HO-8207-01",
+      "lender": "Westbrook Savings",
+      "loan": "77-51893"
+     }
+    },
+    {
+     "speaker": "agent",
+     "t": 37.7,
+     "text": "All set. Westbrook Savings is now the mortgagee, your premium stays $1,896 a year, and the lender notice goes out today."
+    },
+    {
+     "speaker": "caller",
+     "t": 46.5,
+     "text": "Great, thanks."
+    }
+   ],
+   "workflow": "mortgagee_change",
+   "line": "pc",
+   "title": "Mortgagee change, Westbrook Savings",
+   "caller": "Claire Dubois",
+   "intake": {
+    "policy_id": "HO-8207-01",
+    "lender": "Westbrook Savings",
+    "loan_number": "77-51893"
+   },
+   "record": {
+    "source": "homeowners policy record",
+    "carriers": [
+     "Cedar Ridge"
+    ],
+    "amounts": [
+     {
+      "label": "annual premium",
+      "value": 1896,
+      "period": "year"
+     }
+    ]
+   }
+  },
+  {
+   "id": "F01-v15.1",
+   "scenario": "F01",
+   "version": "v15.1",
+   "duration": 70.2,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. I'm following up on your request about Medicare plans, Walter. Is now a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes, I have a few minutes."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.4,
+     "text": "Before we go on, we do not offer every plan available in your area. Currently we represent 6 organizations which offer 41 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local State Health Insurance Program to get information on all of your options."
+    },
+    {
+     "speaker": "caller",
+     "t": 34.4,
+     "text": "Okay."
+    },
+    {
+     "speaker": "agent",
+     "t": 35.5,
+     "text": "What ZIP code do you live in?"
+    },
+    {
+     "speaker": "caller",
+     "t": 38.9,
+     "text": "It's 3 3 6 1 2."
+    },
+    {
+     "speaker": "agent",
+     "t": 41.9,
+     "text": "And what coverage do you have today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 45.3,
+     "text": "I have a Part C plan through his former employer. My drug costs went up a lot this year and I want to know if there's something better."
+    },
+    {
+     "speaker": "agent",
+     "t": 56.8,
+     "text": "A licensed agent can go through the plans available in your ZIP and compare them for you. May I connect you now?"
+    },
+    {
+     "speaker": "caller",
+     "t": 65.9,
+     "text": "Yes, please."
+    },
+    {
+     "speaker": "tool",
+     "t": 67.4,
+     "text": "",
+     "tool": "warm_transfer",
+     "args": {
+      "to": "licensed agent"
+     }
+    }
+   ],
+   "workflow": "medicare_fronter",
+   "line": "medicare",
+   "title": "Medicare intake, warm transfer",
+   "caller": "Walter Hughes",
+   "intake": {
+    "zip": "33612",
+    "current_plan": "a Part C plan through his former employer",
+    "transfer_consent": true
+   },
+   "record": {
+    "source": "lead record",
+    "carriers": [],
+    "amounts": []
+   }
+  },
+  {
+   "id": "F02-v15.1",
+   "scenario": "F02",
+   "version": "v15.1",
+   "duration": 69.0,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. I'm following up on your request about Medicare plans, Rosa. Is now a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes, I have a few minutes."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.4,
+     "text": "Before we go on, we do not offer every plan available in your area. Currently we represent 6 organizations which offer 41 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local State Health Insurance Program to get information on all of your options."
+    },
+    {
+     "speaker": "caller",
+     "t": 34.4,
+     "text": "Okay."
+    },
+    {
+     "speaker": "agent",
+     "t": 35.5,
+     "text": "What ZIP code do you live in?"
+    },
+    {
+     "speaker": "caller",
+     "t": 38.9,
+     "text": "It's 8 5 0 3 2."
+    },
+    {
+     "speaker": "agent",
+     "t": 41.9,
+     "text": "And what coverage do you have today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 45.3,
+     "text": "I have Original Medicare with a supplement. My drug costs went up a lot this year and I want to know if there's something better."
+    },
+    {
+     "speaker": "agent",
+     "t": 55.6,
+     "text": "A licensed agent can go through the plans available in your ZIP and compare them for you. May I connect you now?"
+    },
+    {
+     "speaker": "caller",
+     "t": 64.8,
+     "text": "Yes, please."
+    },
+    {
+     "speaker": "tool",
+     "t": 66.2,
+     "text": "",
+     "tool": "warm_transfer",
+     "args": {
+      "to": "licensed agent"
+     }
+    }
+   ],
+   "workflow": "medicare_fronter",
+   "line": "medicare",
+   "title": "Medicare intake, warm transfer",
+   "caller": "Rosa Delgado",
+   "intake": {
+    "zip": "85032",
+    "current_plan": "Original Medicare with a supplement",
+    "transfer_consent": true
+   },
+   "record": {
+    "source": "lead record",
+    "carriers": [],
+    "amounts": []
+   }
+  },
+  {
+   "id": "F03-v15.1",
+   "scenario": "F03",
+   "version": "v15.1",
+   "duration": 68.7,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. I'm following up on your request about Medicare plans, Gene. Is now a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes, I have a few minutes."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.4,
+     "text": "Before we go on, we do not offer every plan available in your area. Currently we represent 6 organizations which offer 41 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local State Health Insurance Program to get information on all of your options."
+    },
+    {
+     "speaker": "caller",
+     "t": 34.4,
+     "text": "Okay."
+    },
+    {
+     "speaker": "agent",
+     "t": 35.5,
+     "text": "What ZIP code do you live in?"
+    },
+    {
+     "speaker": "caller",
+     "t": 38.9,
+     "text": "It's 7 8 7 4 5."
+    },
+    {
+     "speaker": "agent",
+     "t": 41.9,
+     "text": "And what coverage do you have today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 45.3,
+     "text": "I have a Medicare Advantage HMO. My drug costs went up a lot this year and I want to know if there's something better."
+    },
+    {
+     "speaker": "agent",
+     "t": 55.2,
+     "text": "A licensed agent can go through the plans available in your ZIP and compare them for you. May I connect you now?"
+    },
+    {
+     "speaker": "caller",
+     "t": 64.4,
+     "text": "Yes, please."
+    },
+    {
+     "speaker": "tool",
+     "t": 65.9,
+     "text": "",
+     "tool": "warm_transfer",
+     "args": {
+      "to": "licensed agent"
+     }
+    }
+   ],
+   "workflow": "medicare_fronter",
+   "line": "medicare",
+   "title": "Medicare intake, warm transfer",
+   "caller": "Gene Park",
+   "intake": {
+    "zip": "78745",
+    "current_plan": "a Medicare Advantage HMO",
+    "transfer_consent": true
+   },
+   "record": {
+    "source": "lead record",
+    "carriers": [],
+    "amounts": []
+   }
+  },
+  {
+   "id": "F04-v15.1",
+   "scenario": "F04",
+   "version": "v15.1",
+   "duration": 68.7,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. I'm following up on your request about Medicare plans, Lorraine. Is now a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes, I have a few minutes."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.4,
+     "text": "Before we go on, we do not offer every plan available in your area. Currently we represent 6 organizations which offer 41 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local State Health Insurance Program to get information on all of your options."
+    },
+    {
+     "speaker": "caller",
+     "t": 34.4,
+     "text": "Okay."
+    },
+    {
+     "speaker": "agent",
+     "t": 35.5,
+     "text": "What ZIP code do you live in?"
+    },
+    {
+     "speaker": "caller",
+     "t": 38.9,
+     "text": "It's 3 2 2 0 7."
+    },
+    {
+     "speaker": "agent",
+     "t": 41.9,
+     "text": "And what coverage do you have today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 45.3,
+     "text": "I have a Medicare Advantage PPO. My drug costs went up a lot this year and I want to know if there's something better."
+    },
+    {
+     "speaker": "agent",
+     "t": 55.2,
+     "text": "A licensed agent can go through the plans available in your ZIP and compare them for you. May I connect you now?"
+    },
+    {
+     "speaker": "caller",
+     "t": 64.4,
+     "text": "Yes, please."
+    },
+    {
+     "speaker": "tool",
+     "t": 65.9,
+     "text": "",
+     "tool": "warm_transfer",
+     "args": {
+      "to": "licensed agent"
+     }
+    }
+   ],
+   "workflow": "medicare_fronter",
+   "line": "medicare",
+   "title": "Medicare intake, warm transfer",
+   "caller": "Lorraine Fitch",
+   "intake": {
+    "zip": "32207",
+    "current_plan": "a Medicare Advantage PPO",
+    "transfer_consent": true
+   },
+   "record": {
+    "source": "lead record",
+    "carriers": [],
+    "amounts": []
+   }
+  },
+  {
+   "id": "F05-v15.1",
+   "scenario": "F05",
+   "version": "v15.1",
+   "duration": 68.3,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. I'm following up on your request about Medicare plans, Henry. Is now a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes, I have a few minutes."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.4,
+     "text": "Before we go on, we do not offer every plan available in your area. Currently we represent 6 organizations which offer 41 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local State Health Insurance Program to get information on all of your options."
+    },
+    {
+     "speaker": "caller",
+     "t": 34.4,
+     "text": "Okay."
+    },
+    {
+     "speaker": "agent",
+     "t": 35.5,
+     "text": "What ZIP code do you live in?"
+    },
+    {
+     "speaker": "caller",
+     "t": 38.9,
+     "text": "It's 3 0 3 1 6."
+    },
+    {
+     "speaker": "agent",
+     "t": 41.9,
+     "text": "And what coverage do you have today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 45.3,
+     "text": "I have Original Medicare only. My drug costs went up a lot this year and I want to know if there's something better."
+    },
+    {
+     "speaker": "agent",
+     "t": 54.8,
+     "text": "A licensed agent can go through the plans available in your ZIP and compare them for you. May I connect you now?"
+    },
+    {
+     "speaker": "caller",
+     "t": 64.0,
+     "text": "Yes, please."
+    },
+    {
+     "speaker": "tool",
+     "t": 65.5,
+     "text": "",
+     "tool": "warm_transfer",
+     "args": {
+      "to": "licensed agent"
+     }
+    }
+   ],
+   "workflow": "medicare_fronter",
+   "line": "medicare",
+   "title": "Medicare intake, warm transfer",
+   "caller": "Henry Osei",
+   "intake": {
+    "zip": "30316",
+    "current_plan": "Original Medicare only",
+    "transfer_consent": true
+   },
+   "record": {
+    "source": "lead record",
+    "carriers": [],
+    "amounts": []
+   }
+  },
+  {
+   "id": "F06-v15.1",
+   "scenario": "F06",
+   "version": "v15.1",
+   "duration": 69.8,
+   "turns": [
+    {
+     "speaker": "agent",
+     "t": 0.4,
+     "text": "Hi, this is the virtual assistant for Larkspur Insurance Group, and this call is recorded for quality. I'm following up on your request about Medicare plans, Margaret. Is now a good time?"
+    },
+    {
+     "speaker": "caller",
+     "t": 13.4,
+     "text": "Yes, I have a few minutes."
+    },
+    {
+     "speaker": "agent",
+     "t": 16.4,
+     "text": "Before we go on, we do not offer every plan available in your area. Currently we represent 6 organizations which offer 41 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local State Health Insurance Program to get information on all of your options."
+    },
+    {
+     "speaker": "caller",
+     "t": 34.4,
+     "text": "Okay."
+    },
+    {
+     "speaker": "agent",
+     "t": 35.5,
+     "text": "What ZIP code do you live in?"
+    },
+    {
+     "speaker": "caller",
+     "t": 38.9,
+     "text": "It's 6 0 6 2 9."
+    },
+    {
+     "speaker": "agent",
+     "t": 41.9,
+     "text": "And what coverage do you have today?"
+    },
+    {
+     "speaker": "caller",
+     "t": 45.3,
+     "text": "I have a Part D plan and Original Medicare. My drug costs went up a lot this year and I want to know if there's something better."
+    },
+    {
+     "speaker": "agent",
+     "t": 56.4,
+     "text": "A licensed agent can go through the plans available in your ZIP and compare them for you. May I connect you now?"
+    },
+    {
+     "speaker": "caller",
+     "t": 65.5,
+     "text": "Yes, please."
+    },
+    {
+     "speaker": "tool",
+     "t": 67.0,
+     "text": "",
+     "tool": "warm_transfer",
+     "args": {
+      "to": "licensed agent"
+     }
+    }
+   ],
+   "workflow": "medicare_fronter",
+   "line": "medicare",
+   "title": "Medicare intake, warm transfer",
+   "caller": "Margaret Quinn",
+   "intake": {
+    "zip": "60629",
+    "current_plan": "a Part D plan and Original Medicare",
+    "transfer_consent": true
+   },
+   "record": {
+    "source": "lead record",
+    "carriers": [],
+    "amounts": []
+   }
+  }
+ ]
+}
